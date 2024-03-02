@@ -4,3 +4,5 @@ predavanja
 
 # ignore file extension
 *.exe
+*.diff
+*.res

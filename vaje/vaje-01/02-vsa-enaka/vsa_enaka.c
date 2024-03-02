@@ -26,7 +26,7 @@ int main()
     }
   }
 
-  printf("%d", allEqual);
+  printf("%d\n", allEqual);
 
   return 0;
 }

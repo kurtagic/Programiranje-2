@@ -3,3 +3,5 @@ predavanja
 .idea
 # ignore file extension
 *.exe
+*.diff
+*.res

@@ -23,7 +23,6 @@ int main()
         return 0;
 }
 
-
 int readInteger()
 {
 	int n = 0;

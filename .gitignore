@@ -1,6 +1,20 @@
+#ignore all
+*
+
+#unignore all with file extensions
+# c compiled files are in binary (no extension),
+# so they do not pass this filter
+!*.*
+
+#unignore all directories
+!*/
+
 #ignore directory
 predavanja
 .idea
+
+#ignore subdirectory and its content
+**/build
 
 # ignore file extension
 *.exe

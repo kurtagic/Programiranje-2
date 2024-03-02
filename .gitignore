@@ -13,9 +13,6 @@
 predavanja
 .idea
 
-#ignore subdirectory and its content
-**/build
-
 # ignore file extension
 *.exe
 *.diff

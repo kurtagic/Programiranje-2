@@ -21,6 +21,9 @@ int main()
         putchar('\n');
 
         return 0;
+
+  char c[10];
+  c[10] = 0;
 }
 
 int readInteger()

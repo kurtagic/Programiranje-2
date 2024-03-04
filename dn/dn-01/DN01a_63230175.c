@@ -2,7 +2,6 @@
 #include <stdio.h>
 
 const char SPACE = ' ';
-const char END_OF_LINE = '\0';
 const char NEW_LINE = '\n';
 const char NEGATIVE_SIGN = '-';
 
@@ -21,9 +20,6 @@ int main()
     putchar('\n');
 
     return 0;
-
-    char c[10];
-    c[10] = 0;
 }
 
 int readInteger()
@@ -33,19 +29,18 @@ int readInteger()
 
     char c = getchar();
 
-    while (c != SPACE && c != NEW_LINE && c != END_OF_LINE)
+    while (c != SPACE && c != NEW_LINE)
     {
 
         if (c == NEGATIVE_SIGN)
         {
             isPositive = false;
+            c = getchar();
+            continue;
         }
 
-        else
-        {
-            n *= 10;
-            n += c - '0';
-        }
+        n *= 10;
+        n += c - '0';
 
         c = getchar();
     }

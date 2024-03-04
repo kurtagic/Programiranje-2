@@ -1,7 +1,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-const char END_OF_LINE = '\n';
+const char NEW_LINE = '\n';
 const char ZERO = '0';
 const char ONE = '1';
 
@@ -24,7 +24,7 @@ int readBinaryLength()
 
     char c = getchar();
 
-    while (c != END_OF_LINE)
+    while (c != NEW_LINE)
     {
         if (isLeadingZero && c == ZERO)
         {

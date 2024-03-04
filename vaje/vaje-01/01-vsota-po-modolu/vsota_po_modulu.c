@@ -2,14 +2,14 @@
 
 int main()
 {
-  int a;
-  int b;
+    int a;
+    int b;
 
-  scanf("%d%d", &a, &b);
-  
-  int mod = (a + b) % 10;
+    scanf("%d%d", &a, &b);
 
-  printf("%d", mod);
+    int mod = (a + b) % 10;
 
-  return 0;
+    printf("%d", mod);
+
+    return 0;
 }

@@ -1,36 +1,34 @@
-#include <stdio.h>
 #include <limits.h>
+#include <stdio.h>
 
 int main()
 {
-  int n;
+    int n;
 
-  scanf("%d", &n);
+    scanf("%d", &n);
 
-  int prvoNajvecje = INT_MIN;
-  int drugoNajvecje = INT_MIN;
+    int prvoNajvecje = INT_MIN;
+    int drugoNajvecje = INT_MIN;
 
-  for(int i = 0; i < n; i++)
-  {
-    int a;
-    scanf("%d", &a);
-    
-    if(a > prvoNajvecje)
+    for (int i = 0; i < n; i++)
     {
-      drugoNajvecje = prvoNajvecje;
-      prvoNajvecje = a;
-      continue;
+        int a;
+        scanf("%d", &a);
+
+        if (a > prvoNajvecje)
+        {
+            drugoNajvecje = prvoNajvecje;
+            prvoNajvecje = a;
+            continue;
+        }
+
+        if (a > drugoNajvecje)
+        {
+            drugoNajvecje = a;
+        }
     }
 
-    if(a > drugoNajvecje)
-    {
-      drugoNajvecje = a;
-    }
-  }
+    printf("%d", drugoNajvecje);
 
-  printf("%d", drugoNajvecje);
-
-  return 0;
+    return 0;
 }
-
-

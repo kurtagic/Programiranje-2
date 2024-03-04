@@ -9,7 +9,7 @@ int main()
   
   int mod = (a + b) % 10;
 
-  printf(mod);
+  printf("%d", mod);
 
   return 0;
 }

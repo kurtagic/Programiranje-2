@@ -37,7 +37,6 @@ long gcd(long a, long b)
 
 long lcm(long a, long b)
 {
-    //    return a * b / gcd(a, b);
     int result = (a > b) ? a : b;
 
     while (result % a != 0 || result % b != 0)

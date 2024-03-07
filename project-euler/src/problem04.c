@@ -5,6 +5,7 @@
 
 bool isPalindrome(int n);
 int generateReverseNumber(int n);
+
 int main()
 {
     int largestPalindromeProduct = 0;

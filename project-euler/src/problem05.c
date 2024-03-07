@@ -3,7 +3,6 @@
 #include <stdio.h>
 
 long lcm(long a, long b);
-long gcd(long a, long b);
 
 int main()
 {
@@ -16,23 +15,6 @@ int main()
     printf("%ld\n", n);
 
     return 0;
-}
-
-long gcd(long a, long b)
-{
-    long result = (a < b) ? a : b;
-
-    while (result > 0)
-    {
-        if (a % result == 0 && b % result == 0)
-        {
-            break;
-        }
-
-        result--;
-    }
-
-    return result;
 }
 
 long lcm(long a, long b)

@@ -6,6 +6,8 @@
 # so they do not pass this filter
 !*.*
 
+# uignore Makefiles
+!Makefile
 # unignore all directories
 !*/
 

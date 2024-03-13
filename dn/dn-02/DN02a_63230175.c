@@ -15,9 +15,10 @@ int main()
     int state = START;
     int output = '1';
 
-    while (true)
+    int c;
+    do
     {
-        int c = getchar();
+        c = getchar();
 
         if (c == ' ' || c == '\n')
         {
@@ -30,12 +31,6 @@ int main()
 
             putchar(output);
 
-            if (c == '\n')
-            {
-                putchar('\n');
-                break;
-            }
-
             continue;
         }
 
@@ -45,8 +40,9 @@ int main()
         }
 
         state = stateAvtomata(state, c);
-    }
+    } while (c != '\n');
 
+    putchar('\n');
     return 0;
 }
 
@@ -68,18 +64,15 @@ int stateAvtomata(int state, char c)
             state = PREDZNAK;
         }
         break;
-
     case SAMO_NIC:
         state = INVALID;
         break;
-
     case ZAPOREDJE:
         if (c < '0' || c > '9')
         {
             state = INVALID;
         }
         break;
-
     case PREDZNAK:
         if (c == '0')
         {

@@ -3,49 +3,46 @@
 
 // STATES
 #define START 0
-#define DECIMAL 1
-#define OCTAL 2
-#define HEXADECIMAL 3
-#define PREDZNAK_HEXADECIMAL 4
-#define BINARY 5
-#define PREDZNAK_BINARY 6
-#define NIC 7
+#define NICLA 1
+#define BINARY 2
+#define PREDZNAK_BINARY 3
+#define HEXADECIMAL 4
+#define PREDZNAK_HEXADECIMAL 5
+#define OCTAL 6
+#define DECIMAL 7
 #define INVALID 8
 
 int stateAvtomata(int state, char c);
+int startState(char c);
+int niclaState(char c);
+int binaryState(char c);
+int hexadecimalState(char c);
+int octalState(char c);
+int decimalState(char c);
 
 int main()
 {
+    int c;
     int state = START;
     int output = '1';
 
-    int c;
     do
     {
         c = getchar();
 
         if (c == ' ' || c == '\n')
         {
-            if (state == INVALID)
+            if (state == INVALID || state == PREDZNAK_BINARY || state == PREDZNAK_HEXADECIMAL)
             {
                 output = '0';
             }
-
-            if (state == PREDZNAK_BINARY || state == PREDZNAK_HEXADECIMAL)
-            {
-                output = '0';
-            }
-
-            state = START;
 
             putchar(output);
 
-            continue;
-        }
-
-        if (state == START)
-        {
+            state = START;
             output = '1';
+
+            continue;
         }
 
         state = stateAvtomata(state, c);
@@ -60,72 +57,98 @@ int stateAvtomata(int state, char c)
     switch (state)
     {
     case START:
-        if (c >= '1' && c <= '9')
-        {
-            state = DECIMAL;
-        }
-        else if (c == '0')
-        {
-            state = NIC;
-        }
-        else
-        {
-            state = INVALID;
-        }
+        state = startState(c);
         break;
-    case NIC:
-        if (c == 'x')
-        {
-            state = PREDZNAK_HEXADECIMAL;
-        }
-        else if (c == 'b')
-        {
-            state = PREDZNAK_BINARY;
-        }
-        else if (c >= '0' && c <= '7')
-        {
-            state = OCTAL;
-        }
-        else
-        {
-            state = INVALID;
-        }
+    case NICLA:
+        state = niclaState(c);
         break;
-    case DECIMAL:
-        if (c < '0' || c > '9')
-        {
-            state = INVALID;
-        }
+    case PREDZNAK_BINARY:
+    case BINARY:
+        state = binaryState(c);
+        break;
+    case PREDZNAK_HEXADECIMAL:
+    case HEXADECIMAL:
+        state = hexadecimalState(c);
         break;
     case OCTAL:
-        if (c < '0' || c > '7')
-        {
-            state = INVALID;
-        }
+        state = octalState(c);
         break;
-    case HEXADECIMAL:
-    case PREDZNAK_HEXADECIMAL:
-        if (!((c >= '0' && c <= '9') || (c >= 'A' && c <= 'F')))
-        {
-            state = INVALID;
-        }
-        if (state == PREDZNAK_HEXADECIMAL)
-        {
-            state = HEXADECIMAL;
-        }
-        break;
-    case BINARY:
-    case PREDZNAK_BINARY:
-        if (c < '0' || c > '1')
-        {
-            state = INVALID;
-        }
-
-        if (state == PREDZNAK_BINARY)
-        {
-            state = BINARY;
-        }
+    case DECIMAL:
+        state = decimalState(c);
         break;
     }
+
     return state;
+}
+
+int startState(char c)
+{
+    if (c == '0')
+    {
+        return NICLA;
+    }
+    if (c >= '1' && c <= '9')
+    {
+        return DECIMAL;
+    }
+
+    return INVALID;
+}
+
+int niclaState(char c)
+{
+    if (c == 'b')
+    {
+        return PREDZNAK_BINARY;
+    }
+    if (c == 'x')
+    {
+        return PREDZNAK_HEXADECIMAL;
+    }
+    if (c >= '0' && c <= '7')
+    {
+        return OCTAL;
+    }
+
+    return INVALID;
+}
+
+int binaryState(char c)
+{
+    if (c == '0' || c == '1')
+    {
+        return BINARY;
+    }
+
+    return INVALID;
+}
+
+int hexadecimalState(char c)
+{
+    if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'F'))
+    {
+        return HEXADECIMAL;
+    }
+
+    return INVALID;
+}
+
+int octalState(char c)
+{
+    if (c >= '0' && c <= '7')
+    {
+        return OCTAL;
+    }
+
+    return INVALID;
+}
+
+int decimalState(char c)
+{
+    if (c >= '0' && c <= '9')
+    {
+        return DECIMAL;
+    }
+
+    return INVALID;
 }

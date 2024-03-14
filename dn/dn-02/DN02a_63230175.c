@@ -18,7 +18,6 @@ int main()
 {
     int c;
     int state = START;
-    int output = '1';
 
     do
     {
@@ -26,15 +25,8 @@ int main()
 
         if (c == ' ' || c == '\n')
         {
-            if (state == INVALID || state == PREDZNAK)
-            {
-                output = '0';
-            }
-
-            putchar(output);
-
+            putchar((state == INVALID || state == PREDZNAK) ? '0' : '1');
             state = START;
-            output = '1';
 
             continue;
         }
@@ -92,12 +84,7 @@ int niclaState(char c)
 
 int decimalState(char c)
 {
-    if (c >= '0' && c <= '9')
-    {
-        return DECIMAL;
-    }
-
-    return INVALID;
+    return (c >= '0' && c <= '9') ? DECIMAL : INVALID;
 }
 
 int predznakState(char c)
@@ -106,7 +93,7 @@ int predznakState(char c)
     {
         return NICLA;
     }
-    if (c >= '0' && c <= '9')
+    if (c >= '1' && c <= '9')
     {
         return DECIMAL;
     }

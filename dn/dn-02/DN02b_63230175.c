@@ -24,7 +24,6 @@ int main()
 {
     int c;
     int state = START;
-    int output = '1';
 
     do
     {
@@ -32,15 +31,8 @@ int main()
 
         if (c == ' ' || c == '\n')
         {
-            if (state == INVALID || state == PREDZNAK_BINARY || state == PREDZNAK_HEXADECIMAL)
-            {
-                output = '0';
-            }
-
-            putchar(output);
-
+            putchar((state == INVALID || state == PREDZNAK_BINARY || state == PREDZNAK_HEXADECIMAL) ? '0' : '1');
             state = START;
-            output = '1';
 
             continue;
         }
@@ -115,40 +107,20 @@ int niclaState(char c)
 
 int binaryState(char c)
 {
-    if (c == '0' || c == '1')
-    {
-        return BINARY;
-    }
-
-    return INVALID;
+    return (c == '0' || c == '1') ? BINARY : INVALID;
 }
 
 int hexadecimalState(char c)
 {
-    if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'F'))
-    {
-        return HEXADECIMAL;
-    }
-
-    return INVALID;
+    return ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'F')) ? HEXADECIMAL : INVALID;
 }
 
 int octalState(char c)
 {
-    if (c >= '0' && c <= '7')
-    {
-        return OCTAL;
-    }
-
-    return INVALID;
+    return (c >= '0' && c <= '7') ? OCTAL : INVALID;
 }
 
 int decimalState(char c)
 {
-    if (c >= '0' && c <= '9')
-    {
-        return DECIMAL;
-    }
-
-    return INVALID;
+    return (c >= '0' && c <= '9') ? DECIMAL : INVALID;
 }

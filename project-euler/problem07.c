@@ -1,3 +1,5 @@
+// 10001st Prime
+
 #include <math.h>
 #include <stdbool.h>
 #include <stdio.h>

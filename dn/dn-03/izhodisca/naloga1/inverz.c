@@ -8,14 +8,22 @@ gcc -o test01 test01.c inverz.c -lm
 
 */
 
-#include <stdio.h>
 #include <stdbool.h>
+#include <stdio.h>
 
 #include "inverz.h"
 
-long inverz(long x, long a, long b) {
-    // popravite / dopolnite ...
-    return -1;
+long inverz(long x, long a, long b)
+{
+    for (int i = a; i <= b; i++)
+    {
+        if (f(i) == x)
+        {
+            return i;
+        }
+    }
+
+    return NULL;
 }
 
 // Ta datoteka NE SME vsebovati funkcij main in f!

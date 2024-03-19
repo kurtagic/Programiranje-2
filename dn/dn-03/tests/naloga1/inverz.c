@@ -3,15 +3,30 @@
 
 #include "inverz.h"
 
+// binary search je tuki dobr ker je f(x) strogo monotono narascajoca funkcija
+// aka SORTED in dostop do vrednosti funkcije je KONSTANTEN
+
 long inverz(long x, long a, long b)
 {
-    for (int i = a; i <= b; i++)
+    while (a <= b)
     {
-        if (f(i) == x)
+        long mid = a + (b - a) / 2;
+        long y = f(mid);
+
+        if (y == x)
         {
-            return i;
+            return mid;
+        }
+
+        if (y < x)
+        {
+            a = mid + 1;
+        }
+        else
+        {
+            b = mid - 1;
         }
     }
 
-    return NULL;
+    return -1;
 }

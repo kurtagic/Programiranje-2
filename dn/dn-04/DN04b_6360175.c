@@ -31,7 +31,6 @@ int scanArray(int array[], int n)
 int getPairs(int array[], int n, int k)
 {
     int pairs = 0;
-
     for (int i = 0; i < n; i++)
     {
         for (int j = i + 1; j < n; j++)

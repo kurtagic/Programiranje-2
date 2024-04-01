@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-const int MAX_UNIQUE_NUMBERS = 59;
-
-int scanArray(int *array, int n);
-void fillFrequency(int *frequency, int *array, int n);
 long getPairs(int *array, int n, int k);
 int sumOfFirstNIntegers(int n);
+void fillFrequency(int *frequency, int *array, int n);
+void scanArray(int *array, int n);
+
+const int MAX_UNIQUE_NUMBERS = 59;
 
 int main()
 {
@@ -35,27 +35,27 @@ long getPairs(int *array, int n, int k)
     {
         int a = array[i];
         int b = k - a;
-        int a_pairs = frequency[b];
 
-        if (b < a)
+        int aRepetitions = frequency[a] - 1;
+        int aPairs = frequency[b];
+
+        if (a > b)
         {
             break;
         }
 
-        if (a_pairs <= 0)
-        {
-            i += frequency[a] - 1;
-            continue;
-        }
-
         if (a == b)
         {
-            pairs += sumOfFirstNIntegers(a_pairs - 1);
-            i += a_pairs - 1;
+            pairs += sumOfFirstNIntegers(aRepetitions);
+        }
+
+        if (aPairs <= 0 || a == b)
+        {
+            i += aRepetitions;
             continue;
         }
 
-        pairs += a_pairs;
+        pairs += aPairs;
     }
 
     free(frequency);
@@ -63,7 +63,6 @@ long getPairs(int *array, int n, int k)
 }
 
 // sum za prvih n intov = n(n+1)/2
-// za n-1 bo sum = (n-1)n/2
 int sumOfFirstNIntegers(int n)
 {
     return (n * (n + 1)) / 2;
@@ -77,12 +76,10 @@ void fillFrequency(int *frequency, int *array, int n)
     }
 }
 
-int scanArray(int *array, int n)
+void scanArray(int *array, int n)
 {
     for (int i = 0; i < n; i++)
     {
         scanf("%d", &array[i]);
     }
-
-    return 0;
 }

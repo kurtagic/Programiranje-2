@@ -1,7 +1,12 @@
+#include <limits.h>
+#include <stdbool.h>
 #include <stdio.h>
+#include <stdlib.h>
 
-int scanArray(int array[], int n);
-int getPairs(int array[], int n, int k);
+int scanArray(int *array, int n);
+int getFrequencies(int *frequency, int *array, int n);
+long getPairs(int *array, int n, int k);
+int allSamePairs(int n);
 
 int main()
 {
@@ -10,15 +15,17 @@ int main()
 
     scanf("%d %d", &n, &k);
 
-    int zaporedje[n];
+    int *zaporedje;
+    zaporedje = (int *)malloc(n * sizeof(int));
     scanArray(zaporedje, n);
 
-    printf("%d\n", getPairs(zaporedje, n, k));
+    printf("%ld\n", getPairs(zaporedje, n, k));
 
+    free(zaporedje);
     return 0;
 }
 
-int scanArray(int array[], int n)
+int scanArray(int *array, int n)
 {
     for (int i = 0; i < n; i++)
     {
@@ -28,27 +35,52 @@ int scanArray(int array[], int n)
     return 0;
 }
 
-int getPairs(int array[], int n, int k)
+long getPairs(int *array, int n, int k)
 {
-    int pairs = 0;
+    // velik rajs bi uporablu hashmap :(
+    // tole porab ~4GB za en array...efficency
+    int *frequency = (int *)malloc(INT_MAX * sizeof(int));
+    getFrequencies(frequency, array, n);
+
+    long pairs = 0;
     for (int i = 0; i < n; i++)
     {
-        for (int j = i + 1; j < n; j++)
+        int a = array[i];
+        int b = k - a;
+        int freq = frequency[b];
+
+        if (b < a || freq <= 0)
         {
-            int a = array[i];
-            int b = array[j];
-
-            if (a >= k || b >= k)
-            {
-                break;
-            }
-
-            if (a + b == k)
-            {
-                pairs++;
-            }
+            continue;
         }
+
+        if (a == b)
+        {
+            pairs += allSamePairs(freq);
+            i += freq - 1;
+            continue;
+        }
+
+        pairs += freq;
     }
 
+    free(frequency);
     return pairs;
+}
+
+// sum za prvih n intov = n(n+1)/2
+// za n-1 bo sum = (n-1)n/2
+int allSamePairs(int n)
+{
+    return ((n - 1) * n) / 2;
+}
+
+int getFrequencies(int *frequency, int *array, int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        frequency[array[i]]++;
+    }
+
+    return 0;
 }

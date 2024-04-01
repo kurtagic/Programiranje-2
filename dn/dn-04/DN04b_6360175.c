@@ -1,12 +1,12 @@
-#include <limits.h>
-#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 
+const int MAX_UNIQUE_NUMBERS = 59;
+
 int scanArray(int *array, int n);
-int getFrequencies(int *frequency, int *array, int n);
+void fillFrequency(int *frequency, int *array, int n);
 long getPairs(int *array, int n, int k);
-int allSamePairs(int n);
+int sumOfFirstNIntegers(int n);
 
 int main()
 {
@@ -15,8 +15,7 @@ int main()
 
     scanf("%d %d", &n, &k);
 
-    int *zaporedje;
-    zaporedje = (int *)malloc(n * sizeof(int));
+    int *zaporedje = (int *)malloc(n * sizeof(int));
     scanArray(zaporedje, n);
 
     printf("%ld\n", getPairs(zaporedje, n, k));
@@ -25,43 +24,38 @@ int main()
     return 0;
 }
 
-int scanArray(int *array, int n)
-{
-    for (int i = 0; i < n; i++)
-    {
-        scanf("%d", &array[i]);
-    }
-
-    return 0;
-}
-
 long getPairs(int *array, int n, int k)
 {
     // velik rajs bi uporablu hashmap :(
-    // tole porab ~4GB za en array...efficency
-    int *frequency = (int *)malloc(INT_MAX * sizeof(int));
-    getFrequencies(frequency, array, n);
+    int *frequency = (int *)malloc(MAX_UNIQUE_NUMBERS * sizeof(int));
+    fillFrequency(frequency, array, n);
 
     long pairs = 0;
     for (int i = 0; i < n; i++)
     {
         int a = array[i];
         int b = k - a;
-        int freq = frequency[b];
+        int a_pairs = frequency[b];
 
-        if (b < a || freq <= 0)
+        if (b < a)
         {
+            break;
+        }
+
+        if (a_pairs <= 0)
+        {
+            i += frequency[a] - 1;
             continue;
         }
 
         if (a == b)
         {
-            pairs += allSamePairs(freq);
-            i += freq - 1;
+            pairs += sumOfFirstNIntegers(a_pairs - 1);
+            i += a_pairs - 1;
             continue;
         }
 
-        pairs += freq;
+        pairs += a_pairs;
     }
 
     free(frequency);
@@ -70,16 +64,24 @@ long getPairs(int *array, int n, int k)
 
 // sum za prvih n intov = n(n+1)/2
 // za n-1 bo sum = (n-1)n/2
-int allSamePairs(int n)
+int sumOfFirstNIntegers(int n)
 {
-    return ((n - 1) * n) / 2;
+    return (n * (n + 1)) / 2;
 }
 
-int getFrequencies(int *frequency, int *array, int n)
+void fillFrequency(int *frequency, int *array, int n)
 {
     for (int i = 0; i < n; i++)
     {
         frequency[array[i]]++;
+    }
+}
+
+int scanArray(int *array, int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%d", &array[i]);
     }
 
     return 0;

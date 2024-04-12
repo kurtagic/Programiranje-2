@@ -1,12 +1,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-const char ENCODE_CHAR = '1';
-const char DECODE_CHAR = '2';
 const int ENCODE_LIMIT = 4;
-
-const char NEW_LINE = '\n';
-const char HASHTAG = '#';
 
 int encode();
 int printEncoded(char c, int count);
@@ -16,12 +11,11 @@ int printDecoded();
 
 int main()
 {
-    char c = getchar();
-    if (c == ENCODE_CHAR)
+    if (getchar() == '1')
     {
         encode();
     }
-    else if (c == DECODE_CHAR)
+    else
     {
         decode();
     }
@@ -35,12 +29,13 @@ int main()
 
 int encode()
 {
+    char c;
     char previous = getchar();
     int charCounter = 0;
 
-    while (true)
+    do
     {
-        char c = getchar();
+        c = getchar();
 
         if (c != previous)
         {
@@ -52,20 +47,16 @@ int encode()
             charCounter++;
         }
 
-        if (c == NEW_LINE)
-        {
-            break;
-        }
-
         previous = c;
-    }
+
+    } while (c != '\n');
 
     return 0;
 }
 
 int printEncoded(char c, int count)
 {
-    if (c == HASHTAG)
+    if (c == '#')
     {
         printf("##%d#", count);
         return 0;
@@ -92,12 +83,14 @@ int printEncoded(char c, int count)
 
 int decode()
 {
+    char c;
     getchar(); // remove whitespace
-    while (true)
-    {
-        char c = getchar();
 
-        if (c == HASHTAG)
+    do
+    {
+        c = getchar();
+
+        if (c == '#')
         {
             printDecoded();
         }
@@ -106,11 +99,7 @@ int decode()
             putchar(c);
         }
 
-        if (c == NEW_LINE)
-        {
-            break;
-        }
-    }
+    } while (c != '\n');
 
     return 0;
 }
@@ -118,17 +107,11 @@ int decode()
 int printDecoded()
 {
     char c = getchar();
+    char d;
     int counter = 0;
 
-    while (true)
+    while ((d = getchar()) != '#')
     {
-        char d = getchar();
-
-        if (d == HASHTAG)
-        {
-            break;
-        }
-
         counter = 10 * counter + (d - '0');
     }
 

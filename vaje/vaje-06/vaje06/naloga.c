@@ -43,6 +43,7 @@ char *kopirajDoZnaka(char *niz, char znak)
 char **razcleni(char *niz, char locilo, int *stOdsekov)
 {
     int k = steviloZnakov(niz, locilo) + 1;
+
     *stOdsekov = k;
     char **tab = malloc(k * sizeof(char *));
     for (int i = 0; i < k; i++)
@@ -51,16 +52,6 @@ char **razcleni(char *niz, char locilo, int *stOdsekov)
         tab[i] = kos;
         niz += strlen(kos) + 1;
     }
+
     return tab;
 }
-
-#ifndef test
-
-int main()
-{
-    // koda za ro"cno testiranje (po "zelji)
-
-    return 0;
-}
-
-#endif

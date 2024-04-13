@@ -1,0 +1,11 @@
+fedcba
+f
+ edcba
+ e
+  dcba
+  d
+   cba
+   c
+    ba
+    b
+     a

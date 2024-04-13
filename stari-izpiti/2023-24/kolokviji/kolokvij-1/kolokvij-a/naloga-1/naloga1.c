@@ -26,18 +26,6 @@ int main()
 
 bool isPalindrome(int *array, int n)
 {
-    int i = 0;
-    int j = n - 1;
-    while (i <= j)
-    {
-        if (array[i] != array[j])
-        {
-            //     return false;
-        }
-        i++;
-        j--;
-    }
-
     for (int i = 0, j = n - 1; i <= j; i++, j--)
     {
         if (array[i] != array[j])
@@ -52,7 +40,6 @@ bool isPalindrome(int *array, int n)
 int sumOf(int *array, int n)
 {
     int sum = 0;
-
     for (int i = 0; i < n; i++)
     {
         sum += array[i];

@@ -1,0 +1,115 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "naloga2.h"
+
+char* NIZI[] = {
+    "L3GP51WHt8cwq7PsflGrCuEex7KYOKvwMlaOkEF3WSOZQUB_41lleMqCJMCZpgzYhCRiJGvhwmWC5q",
+    "bC91HA_Rs2jFV3FNG7VIuhNQKJKYpLM9Ctd",
+    "QllDeq646fCLbpTbCDbYbeMIMg451x5JOjbrY_gGkvD0AfNcwGwu_0gHKBQdE_ZVSP",
+    "oFRrTfEi9Z8bTav_u3uRPHSyW7a4OoNqgFs2Eiqp1ZRr7s2Q4uINkdIGjzGtEbm1w52L8v9mOWEOMmnMF4EOZuftyGKsJg_Ov3W",
+    "rbEZ3R2JZRo9Anu_hciPnbooDjUMrsOLj8h45R6XmQn",
+    "5pajc7OdahscnPb2evTEm2ZF_myAV4GmYFrJvabz4TiabO7h7pD9DefWFlQ2JUu2B2uHqOD",
+    "5FQIrIrRw597M3CqJek0Q",
+    "WjG40Ul_oxqvjKnlXPfl",
+    "fbYcp60MeRxD_BkXL_x7LulPKWbM9mgRZz",
+    "0JHIfBNefkKanhsUKpq",
+    "Lb4NdXrmvwMfKCPPvjU",
+    "SK8ijYm7fFN8xJYGhHVsb0HTQ_BDPiamilk",
+    "iQImCC7sxvbbquEo02JJtH0Csp2XVxhf1JQfuyacDUGYbsPMJHZ01",
+    "TGghou9TSHtlMjnQCqeAWKwD7nKI17lA0JYwZdLygyj1orO3zXP",
+    "PqPeC19q26gOp1pg4ETbRLX1v9E8oUzsiDiIIKnG7MSoI0FS",
+    "NCvvgfsEHXjrHm1iBbjQvQ4ueMhufIhZs8vZOPPwEnQOhvg8zl_6QpVk1skMK8vWNM2LJdo0EZyQ0_YRjQTHvZFBMNlrSQ",
+    "uChiNR3Z2cxlzTqXqJN",
+    "BCUPANVFfE0XY0ACBjlXZYtQiftHEm8Wwji5Jyg1vwc",
+    "DAGIV5rAXO4tCwTv2rJUd3GjdzoRJqikjiE6lgnvSPRdb8o8lQMN7faUPzfiei_ZRGnfzUZ",
+    "D",
+    "Yxe6cT1W8vORr3TSyn0QN7P4M3h8m6l9zjp3mrXRJTooUDwyJ6hBA1k2s6qrLJiRTO9D1qFBqoQHad",
+    "jR_Pr_lGRHY_42_kJWxRv7PDgih1o6Lb55ko7",
+    "fd3gJVJDT8g61mrLVPc7sQoXIpUVHkLvatBhaQwz59rVPPBpjR9NxEsInwZuOfM3rEx78FDpY6GZi",
+    "0oSFBz5_T1nQTG1MiRz9bSo7cmDLSIHSGtreIaEr",
+    "eGqGpKPSlDn_meOpfPnD_DqnciYrplor_RSVpEeSD",
+    "l7K9Z5pT2otsAiuUvvq9NI4bVLjzeGRmw7WqnVsyR6gjwO7oRVmmpSEd80nR_F7pzuD4P5s9KbizHERFuzcyEkeUjFkk5w1f5J",
+    "_gXubQJpHPMi8UqjkXoiJkgcaopWZNw7X34ybmETXtAldoLAEWW8qcfsM8EL1CrmhTFdGDSawvA20CeRfj3",
+    "Mv_ETd2uyfv86263AG",
+    "FjvbhYMxm54e0KytyQ__e3KiW2cYY7hm3qhPIGRsPfE__7I3F80T6VZJbjaLNaZqPnHj",
+    "DquNtzMUeFxe_4J_HF4gpC",
+    "ZFFIKXlwpLCv3ygRshiRFooI7HKwiP_PAhhwpQh1W97W",
+    "DhcyYZMtraHGH8pTg6lb4qUTt70h3BDEQnlWksQc6tooWRPP7Dsm98pQFp0",
+    "V5c7DnRtV46zxu95aRGk88sFnBAAstIDQD2WOXF8YuOaRvQ43pNDKf1KRdVesB6lmJVjgZvW2D",
+    "RIpAhhqq63Zb1iac16CqHFGms0cxIc",
+    "tzU7V9hxmrVuD5Wwu3PZuFiPfTvDwmPJN0t",
+    "8BfoCQOgzDSG1nDt8EgSMHgsVIZgq0dk8gT8D0sL1ObhrB",
+    "vZpJlpQcy",
+    "TX5o2M8ddzUzdlfd4",
+    "n",
+    "hGWTX7zIRzabvck9BW0ULrhI3jKMALbc",
+    "Vt6NtmU6ZPIDe3VlUqTGRV4Pu0HPABnb9H6ZHojPZRB_trGPBCdDOw2O6ZCuxRb5ik6Zp_RjqOHW",
+    "4_J0Ot8kpGRCRGZesQEPKXWCuhu5sBfWKZ1zN941Q_2sIzb6wFXbS9s1EQFvJSrI6",
+    "2HBgPpyI553sIVigCVeNBgo1gQpGNePVACxDFeMsQq8AM5XsSiVuI8e2MjDMHcrYXVxtnEezhU4O855",
+    "OKKJGJpxg7_j9vKKGLwJJjrRcHLeFiya8dt",
+    "HIbXYwe9deMXn8qualGZTnsTXaeXwn_EeK2kzRCD17pwA7y7pN9YLcLZey8Gxq62g51ELMQNoMnvsuO5RVTTJqjA6",
+    "y3FJ",
+    "CwcjpKjkzwKzceEOrMTbYO0j8v2f8Rh0c8MGPb_iterPfhIdEyf0HkEYI5Ym5fynDLqywpUmn6PDBwQv7bqnwSp6TEigUQHJSukD",
+    "WoN49L4K8GV2ecAVuDJElGCG7bUA8_SQaxHIqnoqIedR2Bmlzt9I2AuDvlMJA1q2",
+    "k4DAdodgSROWGJEWtOp8HyztD0ya89hgVG2VCDY4wgnFQ54nKXz9L8dKfdoBnFzNEjQUipcBlMD6tw3C",
+    "CmCkRXEPbSRuQMKS_ga44h7uYJnAbGcgk6Z_7UlKfZ1KrO_L0x2lCZBNioOWrfqMyndWv60DQp_KlmD43bXSvoPXSwPxt5YzE8sm",
+    "esEb0ZTwAKGQaFppL_iMMhn1",
+    "8c5v0PGVU6n3LEzHrAUCe1qzlk77FYqHGGwxSPfDePzjCJOkxJ",
+    "_",
+    "PbzeLz7oHa5c4xUNP3HMD8x7ZAHpJg",
+    "erMVh4",
+    "iVPIpjB0B52IlKi6HFXX0WnLveBpjzytxUGUVR_bbaV7sp3fNI5ljXIHH5ErE7Umn2GRG3t5LJ",
+    "N51labe1XYQ9b1TOmxgzvr2B4E0AWvqqj1s",
+    "09C85WZHFCzc6lB6j7z161RpKK6TQUuVHvrJx78IpCQpsj5svxztQUxxDmaQaUcAc3h_hiz18uA2SRU1hF",
+    "NawJDQQxWzbzjqLNgIcZ6qGB3NaiK6FESMlqkSAgkqOUWOBosDi9851JmrpJzYcMxsJqCDxmhL75ULbygSP1IHxNsc1VgjU5nPY",
+    "z8j94sTNxeb5G52UNNdE3GC5CbqPLsTDK4TiXFXJAlQA4XeFlkHhgbwNtlnSpyYhIRsLaJUF59FBhGvcZcWlF82MSuRq2",
+    "MW7AAbKUsrQ3ZCkudZDWZZicmtfBFScVX2e4KifjF8754fFCQMtrsH3IB9xdlOSoFXi",
+    "y0UQCkm",
+    "k",
+    "z9DJpsoO1Nw8OU8nDbwbJewot8Ucc9Be3MVDldB_OiuNQm_bQXEQTpEUfNBTJyJyUkL7iY4Vvpleihuxt4P7EU2M2h",
+    "yVWiLct",
+    "an6XTgVQbb3sdjkpdWcC6BY_BtyHiTp1B9J8Cw1_9jgZdJv4RigSg8yny82Mcxaj_JE_HrsXVxs5",
+    "Ed33886k5O5kDBS_j1vxtAw9bucLyuGWN3PtN2DTWOFiR4BRjs_2phi8IcjP3IAEb3bt4IK4qJ4CcwGG",
+    "UEXsP7ZhLi_wseyU4tKTvJehyDg5QLx",
+    "4XXrReTr9hA4uWid8opf7LM_fkRZzEWdubdzdxmtAMkOhJWAXYqDunQ2LmTtMVkGjrFgNUcSQgc",
+    "9fdjk7tEAQaPN7L7d1phkjjezaXbNtzm4fFG0BAyqNXQjf",
+    "6KD",
+    "cq7nBiCjGfbnQPlqeusiOhE1L9IAaTnRCu",
+    "pTJahXR9eFW3JeI8v4nmAEFwDZlhTTLt3Yku0fTiXb0fSltJFP0L0PbK6ZlaqrVKQDeU5oncu",
+    "7NuIyjvOxgbqKZ7WDw8ftYXcEZajfpk5n69aGpd69gJ1wn",
+    "XdL9F58oNOISuWC3vgk",
+    "WyRDyREuJk6TWdosa0H4Sznpf0SETtGmrqZmHCY6CQdXTceyf_hQiGHftYL3cMJAF",
+    "73jZ5mc3uq5umOmYwgcqaW3coA_0PXjRlLcWEZzK2r39hBZfeZkDKEY93Jo2kSV2nza",
+    "ySNkKUU4TMtW9dQ1UoSH521RpInfdW19j7ttjg8r_FZGhMr2x8OlhDbOn3MemLeAW7mAxnXfcRksPdFzCK0CVV3yC",
+    "eObAY3i",
+    "zbaSpYiPN2JmpdOydZkPCZqy5l7fcwJmyrvWNXrOweVxAVPQGi96qgVnK40pFIcFTFAr4DugjKqJ57RwoO",
+    "X9X8eeXdDHGwwso19rbkypAry29HDd2oEVUguFqQK8UGETrmhgCrL3xRYJxBDF33hNXWPgk5cFz6PmsFEAKn_suRfRxxLI",
+    "R0hzzsu2pPynyPNrr8fSCewXOjvivUgVMt65jVrRHHNLhqSRykewB2lN8bsaW_yVjSSLlTCkl5hufaz1ySR1Fmyd7qjeSNVOw",
+    "ktwWciQC2VQNG2MwWy",
+    "ucLFTgVS1rSHZ6ol2I8DDQ",
+    "7",
+    "2O44lXPvCllK5Bf8n0gy32gItqgJ_IuaaJ0Z91hC5TB8S8_bt5B",
+    "wgmJ0v81X694njuEEwmYnpxwG0e5jjAHu3bD7j1KkAYTbF",
+    "TwxRzxVL_fIDxhkRUadqtpdyAcc0TOqOFCGCWbDE6HXRzU3ZPq",
+    "zwpksrLpROcDDvgy3rJcestqs9lLcJaAOdoCKqCOPuFb96463wQZJc72sjpE4W8mz1e3AEpNSl93j7xXSJ6sPDrFJ",
+    "uOdlC5Vy_GdfYkzQg86tJouKXNqJOzuCKTmDkd9lnaAGUZaKz0TM5U5r3J4qLFtXXhqVurNEeYLFl",
+    "CmTAsjgv7pWfO4qu6JNHr89lJINatUe567dd8Zd13PSNALL1C6LUwl8Rggqy2moKlJfb7eSas1QxiXZAU0rB3g3uUx",
+    "VyNvy",
+    "3xRXT28FhjFOAUH46O4_K6CyG1v3iBsostATEdwD9vZfH_5AVX7KIGAdidIDWBVOcVdrmqt4WvS",
+    NULL
+};
+
+int main() {
+    char** izhodni = naSredino(NIZI, 219);
+
+    int stNizov = sizeof(NIZI) / sizeof(NIZI[0]) - 1;
+    for (int i = 0; i < stNizov; i++) {
+        printf("%d: \"%s\"\n", i, izhodni[i]);
+        free(izhodni[i]);
+    }
+    printf("%s\n", (izhodni[stNizov] == NULL) ? ("NULL") : ("NAPAKA"));
+
+    free(izhodni);
+    return 0;
+}

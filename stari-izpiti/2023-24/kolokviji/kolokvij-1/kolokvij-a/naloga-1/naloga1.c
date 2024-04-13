@@ -18,7 +18,7 @@ int main()
     }
     zaporedje[n] = '\0';
 
-    printf("%s\n", (isPalindrome(zaporedje, n) ? "DA" : "NE"));
+    printf("%s\n", isPalindrome(zaporedje, n) ? "DA" : "NE");
     printf("%d\n", sumOf(zaporedje, n));
 
     return 0;

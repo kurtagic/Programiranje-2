@@ -21,7 +21,7 @@ int main()
 
     return 0;
 }
-// d(A, B)^2 = (a1 - b1)^2 + ... + (an - bn)^2
+// d(A, B)^2 = (a1 - b1)^2 + ... + (an- bn)^2
 int kvadratRazdalje(int *point_a, int *point_b, int n)
 {
     int distance = 0;

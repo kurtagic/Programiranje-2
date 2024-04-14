@@ -1,4 +1,3 @@
-
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -42,16 +41,25 @@ char *kopirajDoZnaka(char *niz, char znak)
 
 char **razcleni(char *niz, char locilo, int *stOdsekov)
 {
-    int k = steviloZnakov(niz, locilo) + 1;
+    *stOdsekov = steviloZnakov(niz, locilo) + 1;
 
-    *stOdsekov = k;
-    char **tab = malloc(k * sizeof(char *));
-    for (int i = 0; i < k; i++)
+    char **matrix = malloc(*stOdsekov * sizeof(char *));
+
+    for (int i = 0; i < *stOdsekov; i++)
     {
-        char *kos = kopirajDoZnaka(niz, locilo);
-        tab[i] = kos;
-        niz += strlen(kos) + 1;
+        char *segment = kopirajDoZnaka(niz, locilo);
+        matrix[i] = segment;
+        niz += strlen(segment) + 1;
     }
 
-    return tab;
+    return matrix;
 }
+
+#ifndef test
+
+int main()
+{
+    return 0;
+}
+
+#endif

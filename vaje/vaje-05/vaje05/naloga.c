@@ -18,19 +18,14 @@ int vsota(int *zac, int *kon)
 
 void indeksInKazalec(int *t, int *indeks, int **kazalec)
 {
-    if (*indeks != -1)
+    if (*indeks == -1)
     {
-        *kazalec = &t[*indeks];
-        return;
+        *indeks = *kazalec - t;
     }
-
-    int i = 0;
-    while (*kazalec != &t[i])
+    else
     {
-        i++;
+        *kazalec = t + *indeks;
     }
-
-    *indeks = i;
 
     return;
 }
@@ -46,6 +41,7 @@ void frekvenceCrk(char *niz, int **frekvence)
     array[ENGLISH_ALPHABET_LETTERS] = '\0';
 
     *frekvence = &array[0];
+
     return;
 }
 

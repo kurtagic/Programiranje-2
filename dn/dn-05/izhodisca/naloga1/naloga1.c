@@ -1,30 +1,23 @@
-/*
-gcc -D=test test01.c naloga1.c
-./a.out
-*/
-
 #include "naloga1.h"
 
 int *poisci(int *t, int *dolzina, int **konec)
 {
-    int i = 0;
-    while (t[i] != 0)
+
+    while (*(t - 1) != 0)
     {
-        i++;
+        t--;
     }
 
-    **konec = t[i];
+    int *prvi = t;
 
-    i = 0;
-    while (t[i] != 0)
+    while (*t != 0)
     {
-        i--;
+        t++;
     }
 
-    int *prvi = t + i;
-
-    *dolzina = (*konec - prvi) - 1;
-    return prvi + 1;
+    *konec = (t - 1);
+    *dolzina = (*konec - prvi) + 1;
+    return prvi;
 }
 
 #ifndef test

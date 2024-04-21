@@ -13,7 +13,7 @@ int *poisci(int *t, int *dolzina, int **konec)
         i++;
     }
 
-    *konec = t + i;
+    **konec = t[i];
 
     i = 0;
     while (t[i] != 0)

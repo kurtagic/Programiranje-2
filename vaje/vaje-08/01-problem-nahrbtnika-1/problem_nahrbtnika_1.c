@@ -12,13 +12,7 @@ int max(int a, int b);
 void fillMatrix(int **matrix, int n);
 void fillArray(int *array, int n);
 
-// int objectsMemo[MAX_VOLUME][MAX_OBJECTS][2];
-
-// manjse kot so dimenzije matrik, vec se breaka...
-int memo2[20001][2001];
-bool memoBool2[2001][2001];
-
-int objectsMemo[MAX_VOLUME][MAX_OBJECTS][4];
+int memo[MAX_VOLUME][MAX_OBJECTS][2];
 
 int main()
 {
@@ -39,17 +33,19 @@ int main()
 
 int maxPrice(int volume, int **objects, int n, int index)
 {
-    if (objectsMemo[volume][index][0] == 2)
-    {
-        return objectsMemo[volume][index][1];
-    }
     if (volume < 0)
     {
         return INT_MIN;
     }
+
     if (index >= n || volume == 0)
     {
         return 0;
+    }
+
+    if (memo[volume][index][0] == 1)
+    {
+        return memo[volume][index][1];
     }
 
     int predmetVolume = objects[0][index];
@@ -58,10 +54,10 @@ int maxPrice(int volume, int **objects, int n, int index)
     int withPredmet = maxPrice(volume - predmetVolume, objects, n, index + 1) + predmetCena;
     int noPredmet = maxPrice(volume, objects, n, index + 1);
 
-    objectsMemo[volume][index][1] = max(withPredmet, noPredmet);
-    objectsMemo[volume][index][0] = 2;
+    memo[volume][index][1] = max(withPredmet, noPredmet);
+    memo[volume][index][0] = 1;
 
-    return objectsMemo[volume][index][1];
+    return memo[volume][index][1];
 }
 
 int max(int a, int b)

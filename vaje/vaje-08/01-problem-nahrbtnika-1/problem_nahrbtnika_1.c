@@ -1,16 +1,24 @@
+#include <limits.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-int max(int a, int b);
+#define MAX_VOLUME 2001
+#define MAX_OBJECTS 2001
 
 int maxPrice(int volume, int **objects, int n, int index);
 
+int max(int a, int b);
 void fillMatrix(int **matrix, int n);
 void fillArray(int *array, int n);
 
-int memo[20001][2001];
-bool memoBool[2001][2001];
+// int objectsMemo[MAX_VOLUME][MAX_OBJECTS][2];
+
+// manjse kot so dimenzije matrik, vec se breaka...
+int memo2[20001][2001];
+bool memoBool2[2001][2001];
+
+int objectsMemo[MAX_VOLUME][MAX_OBJECTS][4];
 
 int main()
 {
@@ -19,8 +27,9 @@ int main()
     scanf("%d %d", &backpackVolume, &n);
 
     int **predmeti = (int **)malloc(n * sizeof(int *));
-    // matrix[0][i] ... prostornina i-tega predmeta
-    // matrix[1][i] ... cena i-tega predmeta
+
+    // matrix[0][i].. volumen i-tega predmet
+    // matrix[1]i]... cena i-tega predmeta
     fillMatrix(predmeti, n);
 
     printf("%d\n", maxPrice(backpackVolume, predmeti, n, 0));
@@ -30,14 +39,13 @@ int main()
 
 int maxPrice(int volume, int **objects, int n, int index)
 {
-    if (memoBool[volume][index])
+    if (objectsMemo[volume][index][0] == 2)
     {
-        return memo[volume][index];
+        return objectsMemo[volume][index][1];
     }
-
     if (volume < 0)
     {
-        return -99999999;
+        return INT_MIN;
     }
     if (index >= n || volume == 0)
     {
@@ -47,12 +55,13 @@ int maxPrice(int volume, int **objects, int n, int index)
     int predmetVolume = objects[0][index];
     int predmetCena = objects[1][index];
 
-    memo[volume][index] = max(maxPrice(volume - predmetVolume, objects, n, index + 1) + predmetCena,
-                              maxPrice(volume, objects, n, index + 1));
+    int withPredmet = maxPrice(volume - predmetVolume, objects, n, index + 1) + predmetCena;
+    int noPredmet = maxPrice(volume, objects, n, index + 1);
 
-    memoBool[volume][index] = true;
+    objectsMemo[volume][index][1] = max(withPredmet, noPredmet);
+    objectsMemo[volume][index][0] = 2;
 
-    return memo[volume][index];
+    return objectsMemo[volume][index][1];
 }
 
 int max(int a, int b)
@@ -62,7 +71,7 @@ int max(int a, int b)
 
 void fillMatrix(int **matrix, int n)
 {
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < 2; i++)
     {
         matrix[i] = (int *)malloc(n * sizeof(int));
         fillArray(matrix[i], n);

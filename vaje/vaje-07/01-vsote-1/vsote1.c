@@ -15,11 +15,11 @@ int main()
 
 int steviloVsot(int n, int k)
 {
-    int sum = 0;
     if (n == 0)
     {
         return 1;
     }
+
     if (n < 0 || k == 0)
     {
         return 0;

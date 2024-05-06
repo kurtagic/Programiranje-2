@@ -1,10 +1,7 @@
-
-#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 #include "naloga.h"
-#include <string.h>
 
 int poisciStudenta(Student **studentje, int stStudentov, int vpisna)
 {
@@ -36,7 +33,6 @@ int dodaj(Student **studentje, int stStudentov, int vpisna, char *predmet, int o
 {
     int studentIndex = poisciStudenta(studentje, stStudentov, vpisna);
 
-    // ustavri novega studenta
     if (studentIndex < 0)
     {
         Student *student = (Student *)malloc(sizeof(Student));

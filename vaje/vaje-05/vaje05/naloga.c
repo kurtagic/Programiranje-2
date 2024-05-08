@@ -1,9 +1,9 @@
-#include "naloga.h"
 #include <ctype.h>
-#include <stdio.h>
 #include <stdlib.h>
 
-const int ENGLISH_ALPHABET_LETTERS = 26;
+#include "naloga.h"
+
+#define ENGLISH_ALPHABET_LETTERS 26
 
 int vsota(int *zac, int *kon)
 {
@@ -32,13 +32,13 @@ void indeksInKazalec(int *t, int *indeks, int **kazalec)
 
 void frekvenceCrk(char *niz, int **frekvence)
 {
-    int *array = (int *)malloc((ENGLISH_ALPHABET_LETTERS + 1) * sizeof(int));
+    int *array = (int *)malloc(ENGLISH_ALPHABET_LETTERS * sizeof(int));
+
     for (int i = 0; niz[i] != '\0'; i++)
     {
         char c = tolower(niz[i]);
         array[c - 'a'] += 1;
     }
-    array[ENGLISH_ALPHABET_LETTERS] = '\0';
 
     *frekvence = &array[0];
 

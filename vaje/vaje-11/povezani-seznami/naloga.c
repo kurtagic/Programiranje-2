@@ -99,7 +99,6 @@ Vozlisce *izbrisiUrejenoR(Vozlisce *zacetek, int element)
 
     if (zacetek->podatek == element)
     {
-
         return zacetek->naslednje;
     }
 

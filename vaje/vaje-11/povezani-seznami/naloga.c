@@ -65,7 +65,45 @@ Vozlisce *vstaviUrejenoR(Vozlisce *zacetek, int element)
         return addNode(zacetek, element);
     }
 
-    zacetek->naslednje = vstaviUrejenoI(zacetek->naslednje, element);
+    zacetek->naslednje = vstaviUrejenoR(zacetek->naslednje, element);
+
+    return zacetek;
+}
+
+Vozlisce *izbrisiUrejenoI(Vozlisce *zacetek, int element)
+{
+    Vozlisce *previous = NULL;
+    Vozlisce *current = zacetek;
+
+    while (current != NULL && current->podatek != element)
+    {
+        previous = current;
+        current = current->naslednje;
+    }
+
+    if (current != NULL)
+    {
+        previous->naslednje = current->naslednje;
+        free(current);
+    }
+
+    return zacetek;
+}
+
+Vozlisce *izbrisiUrejenoR(Vozlisce *zacetek, int element)
+{
+    if (zacetek == NULL)
+    {
+        return zacetek;
+    }
+
+    if (zacetek->podatek == element)
+    {
+
+        return zacetek->naslednje;
+    }
+
+    zacetek->naslednje = izbrisiUrejenoR(zacetek->naslednje, element);
 
     return zacetek;
 }

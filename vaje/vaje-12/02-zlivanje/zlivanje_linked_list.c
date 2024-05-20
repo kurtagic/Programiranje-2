@@ -4,13 +4,12 @@
 
 #include <time.h>
 
-#include "zlivanje_list.h"
+#include "zlivanje_linked_list.h"
 
 void fillFiles(FILE **files, int n, char *filename);
 
 Node *addNode(Node *start, int value);
 
-int getListLength(Node *node);
 void fillArray(int *array, int n, Node *node);
 void outputArray(FILE *output, int *array, int n);
 
@@ -29,6 +28,7 @@ int main()
 
     fillFiles(files, n, filename);
 
+    int length = 0;
     for (int i = 0; i < n; i++)
     {
         while (true)
@@ -40,10 +40,9 @@ int main()
             }
 
             node = addNode(node, value);
+            length++;
         }
     }
-
-    int length = getListLength(node);
     int *array = (int *)malloc(length * sizeof(int));
     fillArray(array, length, node);
 
@@ -88,20 +87,6 @@ Node *addNode(Node *start, int value)
     node->next = start;
 
     return node;
-}
-
-int getListLength(Node *node)
-{
-    Node *current = node;
-    int length = 0;
-
-    while (current != NULL)
-    {
-        current = current->next;
-        length++;
-    }
-
-    return length;
 }
 
 void fillArray(int *array, int n, Node *node)

@@ -2,8 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define UNSET -1
-#define NOT_SET 0
+#define UNSET 0
 #define SET 1
 
 int variations(int n, int k, int *placements, int index);
@@ -21,14 +20,7 @@ int main()
         placements[i] = UNSET;
     }
 
-    int count = 0;
-    placements[0] = SET;
-    count += variations(k, n - 1, placements, 1);
-
-    placements[0] = NOT_SET;
-    count += variations(k, n, placements, 1);
-
-    printf("%d\n", count);
+    printf("%d\n", variations(k, n, placements, 0));
 
     free(placements);
 
@@ -42,31 +34,26 @@ int variations(int k, int n, int *placements, int index)
         return 0;
     }
 
-    if (index == k && n > 0)
+    if (index == k)
     {
-        return 0;
-    }
-
-    if (index == k && n == 0)
-    {
-        return 1;
+        return n == 0 ? 1 : 0;
     }
 
     int count = 0;
-    int previous = placements[index - 1];
+    int previous = index == 0 ? UNSET : placements[index - 1];
 
     if (previous == SET)
     {
-        placements[index] = NOT_SET;
+        placements[index] = UNSET;
         count += variations(k, n, placements, index + 1);
     }
 
-    if (previous == NOT_SET)
+    if (previous == UNSET)
     {
         placements[index] = SET;
         count += variations(k, n - 1, placements, index + 1);
 
-        placements[index] = NOT_SET;
+        placements[index] = UNSET;
         count += variations(k, n, placements, index + 1);
     }
 

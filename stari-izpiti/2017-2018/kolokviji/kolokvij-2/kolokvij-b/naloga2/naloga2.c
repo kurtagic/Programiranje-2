@@ -6,7 +6,7 @@
 #define NOT_SET 0
 #define SET 1
 
-int variations(int n, int k, int *isPlaced, int index);
+int variations(int n, int k, int *placements, int index);
 
 int main()
 {

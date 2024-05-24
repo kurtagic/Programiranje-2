@@ -1,141 +1,79 @@
-
-/*
- * Prevajanje in zagon testnega programa testXY.c:
- *
- * gcc -D=test testXY.c naloga3.c
- * ./a.out
- *
- * Zagon testne skripte ("sele potem, ko ste prepri"cani, da program deluje!):
- *
- * export name=naloga3
- * make test
- *
- * Testni primeri:
- * 02, 03: h = 1
- * 04, 05, 06: mesto = 0
- * 01, 07--10: splo"sni
- */
-
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
-#include <string.h>
 
 #include "naloga3.h"
 
-// po potrebi dopolnite ...
+#define MAX_SIZE 100
 
-Vozlisce* vstaviStolpec(Vozlisce* start, int mesto, int vsebina) {
-    
-    Vozlisce* temp = start;
+void getHeight(Vozlisce *start, int *h);
 
-    int stevec = 0;
-    while (temp!=NULL){
-        stevec++;
-        temp=temp->desno;
-    }
-    temp=start;
+Vozlisce *vstaviStolpec(Vozlisce *start, int mesto, int vsebina)
+{
+    int h = 0;
+    getHeight(start, &h);
 
-    Vozlisce* first=temp;
-    Vozlisce* last=temp;
-
-    for (int i=0; i<mesto-1; i++){
-        first=first->desno;
+    Vozlisce **nodes = (Vozlisce **)malloc(h * sizeof(Vozlisce *));
+    for (int i = 0; i < h; i++)
+    {
+        nodes[i] = (Vozlisce *)malloc(sizeof(Vozlisce));
+        nodes[i]->vsebina = vsebina + i;
+        nodes[i]->desno = NULL;
     }
 
-
-    // return first;
-
-    for (int i=0; i<mesto; i++){
-        last=last->desno;
+    for (int i = 0; i < h - 1; i++)
+    {
+        nodes[i]->dol = nodes[i + 1];
     }
 
-    // return last;
+    nodes[h - 1]->dol = NULL;
 
-if (mesto==0){
-    first=start;
-    Vozlisce* prior = NULL;
-    int counter = vsebina;
+    Vozlisce *row = start;
+    int row_index = 0;
 
-    for (int i=0; first!=NULL; i++){
-        if (i==0){
-            Vozlisce* new = malloc(1*sizeof(Vozlisce));
-            new->vsebina=counter;
-            counter++;
-            new->desno=first;
-            new->dol=NULL;
+    while (row != NULL)
+    {
+        Vozlisce *col = row;
+        Vozlisce *previous = NULL;
+        int col_index = 0;
 
-            start = new;
-            prior = new;
+        while (col != NULL && col_index != mesto)
+        {
+            previous = col;
+            col = col->desno;
+            col_index++;
         }
-        else{
-            Vozlisce* new = malloc(1*sizeof(Vozlisce));
-            new->vsebina=counter;
-            counter++;
-            new->desno=first;
-            new->dol=NULL;
 
-            prior->dol=new;
-            prior=new;
+        if (previous != NULL)
+        {
+            previous->desno = nodes[row_index];
         }
-        first=first->dol;
+
+        if (previous == NULL)
+        {
+            start = nodes[0];
+        }
+
+        nodes[row_index]->desno = col;
+        row = row->dol;
+        row_index++;
     }
 
-}
-
-else{
-    Vozlisce* priorNew=NULL;
-
-    int counter = vsebina;
-    for (int i=0; first!=NULL; i++){
-        if (i==0){
-            Vozlisce* new = malloc(1*sizeof(Vozlisce));
-            new->vsebina=counter;
-            counter++;
-            new->desno=last;
-            new->dol=NULL;
-
-            first->desno=new;
-
-            priorNew=new;
-        }
-        else{
-            Vozlisce* new = malloc(1*sizeof(Vozlisce));
-            new->vsebina=counter;
-            counter++;
-            new->desno=last;
-            new->dol=NULL;
-
-            priorNew->dol=new;
-
-            first->desno=new;
-
-            priorNew=new;
-
-        }
-            
-
-        first=first->dol;
-        last=last->dol;
-    }
-}
-            
     return start;
-
-
-
-
 }
 
-//=============================================================================
+void getHeight(Vozlisce *start, int *h)
+{
+    Vozlisce *current = start;
+    while (current != NULL)
+    {
+        current = current->dol;
+        (*h)++;
+    }
+}
 
 #ifndef test
-
-int main() {
-    // "Ce "zelite funkcijo <vstaviStolpec> testirati brez testnih primerov,
-    // dopolnite to funkcijo in prevedite datoteko na obi"cajen na"cin
-    // (gcc naloga3.c).
+int main()
+{
     return 0;
 }
-
 #endif

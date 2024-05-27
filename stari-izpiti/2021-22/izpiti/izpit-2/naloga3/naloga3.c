@@ -93,14 +93,17 @@ int getQuadrant(int n, int s, int v)
     {
         return 1;
     }
+
     if (s < x_right && v < y_upper)
     {
         return 2;
     }
+
     if (s < x_left && v < y_lower)
     {
         return 3;
     }
+
     if (s < x_right && v < y_lower)
     {
         return 4;

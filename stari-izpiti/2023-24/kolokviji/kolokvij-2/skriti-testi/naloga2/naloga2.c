@@ -53,9 +53,6 @@ int main(int argc, char **argv)
         }
     }
 
-    fclose(input);
-    fclose(output);
-
     free(entry);
     free(wantedIndexes);
 
@@ -65,6 +62,9 @@ int main(int argc, char **argv)
     }
 
     free(tokens);
+
+    fclose(input);
+    fclose(output);
 
     return 0;
 }

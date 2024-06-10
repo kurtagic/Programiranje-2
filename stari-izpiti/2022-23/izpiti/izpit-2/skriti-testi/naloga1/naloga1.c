@@ -12,7 +12,6 @@ int main(int argc, char **argv)
     unsigned char *buffer = (unsigned char *)malloc(MAX_SIZE * sizeof(unsigned char));
 
     size_t len = fread(buffer, sizeof(unsigned char), MAX_SIZE, input);
-    printf("%lu\n", len);
 
     for (int i = 0; i < len - 1; i++)
     {

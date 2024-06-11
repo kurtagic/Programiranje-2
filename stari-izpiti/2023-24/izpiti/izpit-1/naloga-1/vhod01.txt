@@ -1,0 +1,5 @@
+5 4
+c3 e2 d4 b5 a3 b1 d2 e4 c5 a4 b2 d1 e3 d5 b4 a2 c1 d3 e1 c2 a1 b3 a5 c4 e5
+c3 e2 d4 b5 a3 b1 d2 e4 c5 a4 b2 d1 e3 d5 b4 a2 c1 d3 e1 c2 a1 b3 a5 c4 e5 d3
+c3 e2 d4 b5 a3 b1 d2 e4 c5 a4 b2 c4 e3 d5 b4 a2 c1 d3 e1 c2 a1 b3 a5 c4 e5
+c3 e2 d4 b5 a3 b1 d2 e3 c5 a4 b2 d1 e4 d5 b4 a2 c1 d3 e1 c2 a1 b3 a5 c4 e5

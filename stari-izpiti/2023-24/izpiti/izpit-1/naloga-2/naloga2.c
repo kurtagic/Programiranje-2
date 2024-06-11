@@ -29,8 +29,12 @@ void obdelaj(Vozlisce *zacetek, int k)
 
         if (podatek == sum)
         {
+            Vozlisce *node = current;
+
             current = current->naslednje;
             previous->naslednje = current;
+
+            free(node);
 
             continue;
         }

@@ -9,21 +9,19 @@ int main(int argc, char **argv)
     FILE *output = fopen(argv[2], "wb");
 
     unsigned char *buffer = (unsigned char *)malloc(MAX_SIZE * sizeof(unsigned char));
+
     size_t len = fread(buffer, sizeof(unsigned char), MAX_SIZE, input);
 
     for (int i = 0; i < len; i++)
     {
-        unsigned char current = buffer[i];
-
-        if (i < len - 1 && current == 0x1B && buffer[i + 1] == 0xC9)
+        if (i < len - 1 && buffer[i] == 0x1B && buffer[i + 1] == 0xC9)
         {
-            fwrite(&buffer[i + 1], sizeof(unsigned char), 1, output);
-            i++;
+            fwrite(&buffer[i++ + 1], sizeof(unsigned char), 1, output);
 
             continue;
         }
 
-        fwrite(&current, sizeof(unsigned char), 1, output);
+        fwrite(&buffer[i], sizeof(unsigned char), 1, output);
     }
 
     free(buffer);

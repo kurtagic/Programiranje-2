@@ -14,11 +14,10 @@ int main(int argc, char **argv)
     for (int i = 0; i < len; i++)
     {
         unsigned char current = buffer[i];
-        unsigned char next = buffer[i + 1];
 
-        if (i < len - 1 && current == 0x1B && next == 0xC9)
+        if (i < len - 1 && current == 0x1B && buffer[i + 1] == 0xC9)
         {
-            fwrite(&next, sizeof(unsigned char), 1, output);
+            fwrite(&buffer[i + 1], sizeof(unsigned char), 1, output);
             i++;
 
             continue;

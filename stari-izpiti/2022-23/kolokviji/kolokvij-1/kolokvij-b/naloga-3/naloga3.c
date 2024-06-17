@@ -25,25 +25,21 @@ int main()
 int permutations(int n, int m, bool *isTaken)
 {
     int count = 0;
-    int limit = n > m ? m : n;
 
-    for (int a = n - 1; a > 1; a--)
+    for (int a = 1; a < n; a++)
     {
         if (isTaken[a])
         {
             continue;
         }
 
-        for (int b = a - 1; b > 0; b--)
-        {
-            if (isTaken[b])
-            {
-                continue;
-            }
+        isTaken[a] = true;
 
+        for (int b = 1; b < a; b++)
+        {
             int sum = a + b;
 
-            if (sum > m)
+            if (isTaken[b] || sum > m || n % sum != 0)
             {
                 continue;
             }
@@ -51,21 +47,18 @@ int permutations(int n, int m, bool *isTaken)
             if (n == sum)
             {
                 count++;
+
+                break;
             }
 
-            if (n % sum != 0)
-            {
-                continue;
-            }
-
-            isTaken[a] = true;
             isTaken[b] = true;
 
             count += permutations(n / sum, m, isTaken);
 
-            isTaken[a] = false;
             isTaken[b] = false;
         }
+
+        isTaken[a] = false;
     }
 
     return count;

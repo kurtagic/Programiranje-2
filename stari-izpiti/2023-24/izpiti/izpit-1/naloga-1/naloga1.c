@@ -45,7 +45,7 @@ int main(int argc, char **argv)
 
             if (!isValidDistance(board, j))
             {
-                fgets(buffer, maxRowSize, input);
+                fgets(buffer, maxRowSize, input); // consume rest of row
                 isValid = false;
 
                 break;
@@ -53,7 +53,7 @@ int main(int argc, char **argv)
 
             if (!isUnique(board, j))
             {
-                fgets(buffer, maxRowSize, input);
+                fgets(buffer, maxRowSize, input); // consume rest of row
 
                 isValid = false;
                 break;

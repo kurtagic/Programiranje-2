@@ -22,9 +22,7 @@ void printArray(int *array, int n);
 
 int main()
 {
-    int n;
-    int m;
-    int K;
+    int n, m, K;
 
     scanf("%d %d %d", &n, &m, &K);
 
@@ -59,6 +57,7 @@ void paths(Link **links, int *path, int n, int m, int K, int index, int sum)
     if (current == n - 1)
     {
         printArray(path, index + 1);
+        
         return;
     }
 

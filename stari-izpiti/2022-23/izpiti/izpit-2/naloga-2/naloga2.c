@@ -13,8 +13,7 @@ void removeChar(char *array, int n);
 int main()
 {
     char *niz = (char *)malloc((MAX_SIZE + 1) * sizeof(char));
-    int a;
-    int b;
+    int a, b;
 
     scanf("%s %d %d", niz, &a, &b);
 
@@ -34,12 +33,7 @@ void razbitja(char *buffer, int a, int b, int index, int segments)
 {
     int len = strlen(buffer);
 
-    if (index > len)
-    {
-        return;
-    }
-
-    if (segments > b)
+    if (index > len || segments > b)
     {
         return;
     }
@@ -47,6 +41,7 @@ void razbitja(char *buffer, int a, int b, int index, int segments)
     if (index == len && segments >= a)
     {
         printf("%s\n", buffer);
+
         return;
     }
 

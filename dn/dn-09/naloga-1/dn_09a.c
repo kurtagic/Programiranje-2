@@ -2,8 +2,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void rekurz(int **podmnozice, int *zaporedje, int n, int k, int podmnoziceIndex, int elementPodmnoziceIndex,
-            int zaporedjeIndex);
+void rekurz(int *zaporedje, bool *isUSed, int n, int k, int targetSumForPodmnozica);
+void fillPodmnozica(int *podmnozica, int *len, int *zaporedje, bool *isUsed, int n, int k, int targetSumForPodmnozica);
+void printPodmnozica(int *podmnozica, int n);
 
 int main()
 {
@@ -11,36 +12,80 @@ int main()
     scanf("%d %d", &n, &k);
 
     int *zaporedje = (int *)malloc(n * sizeof(int));
+
+    int a, sum = 0;
     for (int i = 0; i < n; i++)
-        scanf("%d", &zaporedje[i]);
+    {
+        scanf("%d", &a);
+        zaporedje[i] = a;
+        sum += a;
+    }
 
-    bool *isZapordje = (bool *)malloc(n * sizeof(bool));
+    int targetSumForPodmnozica = sum / k;
+
+    bool *isUsed = (bool *)malloc(n * sizeof(bool));
     for (int i = 0; i < n; i++)
-        isZapordje[i] = false;
+        isUsed[i] = false;
 
-    int **podmnozice = (int **)malloc(k * sizeof(int *));
-    for (int i = 0; i < k; i++)
-        podmnozice[i] = (int *)malloc((n - k + 1) * sizeof(int));
-
-    rekurz(podmnozice, zaporedje, n, k, 0, 0, 0);
+    rekurz(zaporedje, isUsed, n, k, targetSumForPodmnozica);
 
     // CLEANUP
     free(zaporedje);
-    free(isZapordje);
-    for (int i = 0; i < k; i++)
-        free(podmnozice[i]);
-    free(podmnozice);
+    free(isUsed);
 
     return 0;
 }
 
-void rekurz(int **podmnozice, int *zaporedje, int n, int k, int podmnoziceIndex, int elementPodmnoziceIndex,
-            int zaporedjeIndex)
+void rekurz(int *zaporedje, bool *isUsed, int n, int k, int targetSumForPodmnozica)
 {
+    int *podmnozica = (int *)malloc(n * sizeof(int));
+    int *len = 0;
+    printf("{");
+    for (int i = 0; i < k; i++)
+    {
+        fillPodmnozica(podmnozica, len, zaporedje, isUsed, n, k, targetSumForPodmnozica);
+        printPodmnozica(podmnozica, *len);
 
+        printf(i + 1 < k ? ", " : "");
+    }
+
+    printf("}\n");
+
+    free(podmnozica);
+}
+
+void fillPodmnozica(int *podmnozica, int *len, int *zaporedje, bool *isUsed, int n, int k, int targetSumForPodmnozica)
+{
     for (int i = 0; i < n; i++)
     {
-        podmnozice[podmnoziceIndex][elementPodmnoziceIndex] = zaporedje[zaporedjeIndex];
-        rekurz(podmnozice, zaporedje, n, k, (podmnoziceIndex + 1) % k, elementPodmnoziceIndex + 1, zaporedjeIndex + 1);
+        if (isUsed[i])
+        {
+            continue;
+        }
+        if (isPodmnozicaFull(podmnozica, len, targetSumForPodmnozica))
+        {
+            return;
+        }
+
+        podmnozica[*len] = zaporedje[i];
+        isUsed[i] = true;
+        fillPodmnozica(podmnozica, len + 1, zaporedje, isUsed, n, k, targetSumForPodmnozica);
+        isUsed[i] = false;
     }
+}
+
+bool isPodmnozicaFull(int *podmnozica, int *len, int targetSumforPodmnozica)
+{
+    for (int i = 0; i < *len; i++)
+}
+
+void printPodmnozica(int *podmnozica, int n)
+{
+    printf("{");
+    for (int i = 0; i < n; i++)
+    {
+        printf("%d", podmnozica[i]);
+        printf(i + 1 < n ? ", " : "");
+    }
+    printf("}");
 }

@@ -13,7 +13,6 @@ int main(int argc, char *argv[])
 
     char *buffer = malloc(MAX_LENGTH * sizeof(char *));
     int z = 0;
-    int next_z = 0;
 
     while (fgets(buffer, MAX_LENGTH, input))
     {

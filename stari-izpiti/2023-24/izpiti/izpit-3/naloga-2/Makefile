@@ -1,4 +1,3 @@
-
 # Pred poganjanjem programa make:
 #     export name=<ime_datoteke_C_brez_koncnice>
 #

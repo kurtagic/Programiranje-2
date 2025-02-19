@@ -1,0 +1,267 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <string.h>
+
+#include "naloga2.h"
+
+void izdelaj(char** nizi, int indeks, const char* niz) {
+    nizi[indeks] = malloc((strlen(niz) + 1) * sizeof(char));
+    strcpy(nizi[indeks], niz);
+}
+
+int main() {
+    int n = 227;
+    char** nizi = calloc(n + 1, sizeof(char*));
+
+    izdelaj(nizi, 0, "m0i5iMiOcbIgGZjARUh3qm3Wai9pR2");
+    izdelaj(nizi, 1, "4Pv5I1NxrA_HkGDI3c_ppaYmMKwxVhcZvR90nQTAPG5tlw3vCkHvzEr0NDjoRjY_ZjPBHi0IoPqALz52u");
+    nizi[2] = nizi[0];
+    izdelaj(nizi, 3, "ESXtKwZuYJ9QsSfK10xqvaFpBBFALEN2zj1zqgnrumDXWldvnXsz94HZ6hEIGWo");
+    izdelaj(nizi, 4, "SbRe51I2WOLE2a4pzWiS9VxjvVIob7pQ77PGHDIRVBPcqqCw");
+    izdelaj(nizi, 5, "ZBovTlDLzsXck0R_UNEA4_W0WcKW8KkP9iJgdEo9hRoM9At0novtMwfe5y5aWqBklRVrHYsKxEO");
+    nizi[6] = nizi[3];
+    izdelaj(nizi, 7, "J15VhaxaHtXiPWdwAUMON06XxyNlMM5qaCWVYCcEl6PCc6ibn5iyXd");
+    izdelaj(nizi, 8, "ygMHuZZFFj_4fjjN97C8w5lIhZN1es2Wc24uwXmeI30RpPiRqngC2r");
+    nizi[9] = nizi[0];
+    nizi[10] = nizi[9];
+    nizi[11] = nizi[0];
+    izdelaj(nizi, 12, "pMhR3wvLV8nwvosKCxmSLXpN3EOw6YPAzzWrBsVeVQHs9BbIi");
+    nizi[13] = nizi[4];
+    izdelaj(nizi, 14, "n9TPDYXHG_3pwCrT0lRG");
+    izdelaj(nizi, 15, "MxVy8dcPwj1k2AytmivsMg7Fn289K78MZaKFhaKI9Pfyrxpk1HB4");
+    nizi[16] = nizi[7];
+    izdelaj(nizi, 17, "5z0VGQTHHnZcFmQb8hlVRXmQoDCHnXNem3eBIZGkLpLhROMDAGi8jT");
+    nizi[18] = nizi[1];
+    izdelaj(nizi, 19, "0282bhLGV");
+    izdelaj(nizi, 20, "eUdD6ayQHsr7yu");
+    izdelaj(nizi, 21, "JVzpxkKXKCFuNgOYcDp9NbvLJBrJa7LL5lrrtwdOUV5sXYibfnSFMUzAvBjA2WoxHDyRX8K5t0l3SGDOEhLewna");
+    izdelaj(nizi, 22, "Jgiau1kpeLhrpHqrNp5WMHDvVq6zRH5jNPtftKS");
+    izdelaj(nizi, 23, "NQ2397XjLGB6P95tUDW3ofGCRzrqPQ0tm5a36Lt858c68hn_2UbyRMj3af_41aWMLOJoLITM1HA4TggW0yH0Ae");
+    izdelaj(nizi, 24, "FtKm5310M2B7c1rgG2SG2hdmSqBZ9tCjWIbVoRp7SVnwWv_OKGQuX3eSzWfPJkZk0hP_FFFzs5VA9Lk");
+    izdelaj(nizi, 25, "ryP5BGuf3zcMcT48VnHZOKdBOqc3VQNX4obg7QAaVK7NfP03zclE9pn4WtoLtXm2ugSF2mHSDAu1DcG9");
+    izdelaj(nizi, 26, "9STenTg2zh0_bl3fxPYbJijGSNPC4J_ecnTquGaoUitAcQargCApN");
+    izdelaj(nizi, 27, "eEJcdAJ9nvzFI8ncihYS2PYCs3SXRtlmnbs3o4Nd48dkYrE8");
+    izdelaj(nizi, 28, "Thb98yM3HhGEhUVVMBCZFWAzYwzVlpFvtPBqhX62ZUxnC_cPvS8NlyvdfgwHLbAvx");
+    izdelaj(nizi, 29, "_xp3bKKgnPFvGT5Fszqfws60UI1WY_Aef0dcXz2jGXSKtTmNceL29");
+    izdelaj(nizi, 30, "8wYh7zDHRjEuKETGRBldeyoUgXtWI3VpjyUAExQD0dASdaX");
+    izdelaj(nizi, 31, "qEgzJA4UqHEyC5ElsgckwkHpV8rSl");
+    izdelaj(nizi, 32, "PZKYFVK79qF4YkwjBonGcbHtloleh6Ere9Oag91mlrgb6KCoE8wO5k5DDd3IQI");
+    nizi[33] = nizi[19];
+    nizi[34] = nizi[17];
+    izdelaj(nizi, 35, "16VFyKchHCdVNqRCj9qIPJqySYH7xOZZ4iGHvhX03hhy5q0wSED_H4l_d5atLGYtjdBhTL5X155XI");
+    izdelaj(nizi, 36, "4EqWiNwfJMJOX5YrS");
+    izdelaj(nizi, 37, "XU3IFvQUUmilWCUKEkcv05rqpSWZ1he4a_fH");
+    izdelaj(nizi, 38, "vlqmaqKrI6iNfXMtLanpCatMLY75bgs3dt0E0pc7F");
+    nizi[39] = nizi[17];
+    izdelaj(nizi, 40, "FaXfherEK3q8");
+    nizi[41] = nizi[29];
+    izdelaj(nizi, 42, "MmKYJwKwaIAkLxwGJB");
+    izdelaj(nizi, 43, "VbTvXFnREvNd56vEHv1v4V8crK8uM0mCI_wKqhF3_FzDYcZbJ6vEXJLkDWRioyAdk");
+    izdelaj(nizi, 44, "VJL2kukTztTet1pIFjpiO1hpSQk1tIaLyggcGOM0T0GuAEb8UhO_vNVIDR3NRCZMqc9RKYPpawrapusDMSQg0zp7sHi3e4hTiy8");
+    izdelaj(nizi, 45, "lnPggzXmMrZ__NdupYZwFBxx2VJoNi6FSYSKM");
+    izdelaj(nizi, 46, "e9FvJObjz9jpn2aPWdMncHTYsEQtgM9Crc_7ZKTVkWP");
+    izdelaj(nizi, 47, "06EvO2");
+    nizi[48] = nizi[44];
+    nizi[49] = nizi[35];
+    nizi[50] = nizi[2];
+    nizi[51] = nizi[40];
+    izdelaj(nizi, 52, "ccDNgllFqhzUfVYCCazkz_mRpkyDqLv7YF2b4Vkfd3kA8IXKJqks8hFHWUIsxtKKUca");
+    nizi[53] = nizi[46];
+    izdelaj(nizi, 54, "xoWO8r8Hvu7YFHWVM04LJhT79dJr6TuRgrjaemcXYHG2nLPqmw12e6iLUn0_aFbWEBU5e_wstnCHhHF");
+    izdelaj(nizi, 55, "cao7nQ85CQfHamfjdj2X0lZw2k8aforoFt0cHCdSvdIi4CE3NLTpW0kPHV");
+    izdelaj(nizi, 56, "HGp5pYZpmBDa_2y2nqZ2dy3");
+    izdelaj(nizi, 57, "lhvq6U9c9CJoJY9EZFF3M7j4NbQEtL3RDVnUk_yPJlC8hPessbq_2uXc");
+    nizi[58] = nizi[40];
+    izdelaj(nizi, 59, "5tnm7");
+    izdelaj(nizi, 60, "BaEin4NGUOzgMCu8dZsL72vKyoPEsZfOdbkyF5emfSxEncc1HjJmmom");
+    nizi[61] = nizi[7];
+    izdelaj(nizi, 62, "RBWIzoeVqaUgyIGJnh46DFj_OS0NgclqhuDGNDkqIPwjj0cg9u_y");
+    nizi[63] = nizi[11];
+    nizi[64] = nizi[13];
+    izdelaj(nizi, 65, "31AN68cKiNz8L8vcc1MklNeebcl5YjHH8dZ6VYCLU5g4Wel9x24msQUWb6UM18aWk6483dVHQleamlvglKAGksJ");
+    izdelaj(nizi, 66, "zqUPkbN9F2LGBgJ9W8oZWa70SKMUXC7UDju6dwWrOIMSHsq");
+    nizi[67] = nizi[20];
+    izdelaj(nizi, 68, "FCZAYu4_nevKcBRTvOkS5QC4FvUqDWPVogZw9Pt6XVOe78LsuK99FSHDXyG3G0ndefCQBB2EtrcxBrW8QoE31YoDBRzlGMFmR9B4");
+    nizi[69] = nizi[58];
+    izdelaj(nizi, 70, "9bKioOJu8tWmNcHh1wBUvzDdRYZBbpFMhMpu6yE5AAdKrd_nPmvWZo28IXkMeIXn4D3250bafnP");
+    izdelaj(nizi, 71, "oi3RkDDaTbZbSpaWlbxq_wWDGw7F1oslOV3IJLl7TAvumvXRhxu2bwzK3c6");
+    izdelaj(nizi, 72, "gAl9vZphbX1frPN1Iw3ZCuA3ENWELoS_0ORJMgjvDwRw5OXWFyYnVZgxRKpy6UlRrvF4HscGm");
+    izdelaj(nizi, 73, "xmA3f3zt77skPlDz1bhIM6_s6TfQfNCH4bz_tuIJloEvkiQWY4aFhUugJLq");
+    izdelaj(nizi, 74, "38ibMMOu95APnufzBomAOgA6TxJOcchw46lFa4IAf3olug51XSKTtZmyrb");
+    izdelaj(nizi, 75, "RfbtlJvAlp2Vbh7jl3GHAHb5unYFMQIKWh5LpUKP9AN8TOIr30fAdNGB6Ew_0Zeh9DwJMnSOj89");
+    izdelaj(nizi, 76, "zEB0xNyXRVHLNKa");
+    izdelaj(nizi, 77, "Wfk3qWQl2aJECi37OduS2nQ_Vzz6ZgSYgiZ5CaFJtJ6tVMVA9UeYD00adJmuwv");
+    izdelaj(nizi, 78, "1yN2QouYVTdEA6VP0lgRy31aA");
+    izdelaj(nizi, 79, "linf4gQ2vaJLcC9cjAlOe5DFvy5JRRGyqW1B");
+    nizi[80] = nizi[28];
+    nizi[81] = nizi[17];
+    nizi[82] = nizi[12];
+    izdelaj(nizi, 83, "Onfd7YB462bhUMzuxl5XoxBPRkcc6KmVsOH6gb");
+    nizi[84] = nizi[68];
+    izdelaj(nizi, 85, "rJmpqHR5EU54jjT8866ANZxO0aUZmCM5vEcjWr5DJYghSOe_ox549mgxJosLLfGiSewS26mejTh_DwV");
+    izdelaj(nizi, 86, "Sck22TnJ3I1X8fYAm");
+    izdelaj(nizi, 87, "t7BHB6DwcacXFUJqOK");
+    izdelaj(nizi, 88, "oxSh");
+    izdelaj(nizi, 89, "03DCZ1G2K00ZnNBDQgQoeml4eWv15chI8oXIIbyavnrBpSRnwu8csGKdIZE07NCGifRJKk7t0o4875nenu9W5QSE");
+    nizi[90] = nizi[18];
+    izdelaj(nizi, 91, "dYShCFPekAZHWVLdph0dCqqjl2oD7gq_HTRSUJ");
+    izdelaj(nizi, 92, "vCkAZ");
+    izdelaj(nizi, 93, "Jizl6a");
+    nizi[94] = nizi[13];
+    izdelaj(nizi, 95, "5XiQ2F5Urjqxv50fqmwzZwKLx0ubuoC65KJOE2cLAQtqYEatijGnsjA52JSJtjvggQ8AHtFWIjCxxKFdr");
+    izdelaj(nizi, 96, "a5sOVkKudkrLQCOfP5VPbK");
+    izdelaj(nizi, 97, "aQC6vKKLPr2QZAQKrUL87a4jTs7Djslw0QEP01xYuMZ37DscVCQwFmnRJk10PDUqdc");
+    nizi[98] = nizi[82];
+    izdelaj(nizi, 99, "rf5zNPbnllUaHKS1yZv21ObugfJV8VswsKXVp8kSwWkNvq85gaor");
+    nizi[100] = nizi[54];
+    izdelaj(nizi, 101, "yv_KApA8Bdd7bFbjbAyy3XAPqwEwNs1fgZ69ng_N4YqmZGcNtrcX8E");
+    izdelaj(nizi, 102, "3V5Nepg");
+    izdelaj(nizi, 103, "ZLZ1KqPtHwyTDONsUmFI5SQ2ARWD4HyPDrSb3UoZV3b3Ln");
+    izdelaj(nizi, 104, "77avbrGMM");
+    nizi[105] = nizi[21];
+    izdelaj(nizi, 106, "pUhRGb2oHYBhtArn03pIXFz");
+    izdelaj(nizi, 107, "t6a1eI1p8FR0weTjTQHzs7v4v");
+    nizi[108] = nizi[89];
+    nizi[109] = nizi[35];
+    izdelaj(nizi, 110, "p_CsSfnT1SVQPrf0XW9xUELP4hpDAoQ9sltkIXQzdr33v2jrA28vHH4PZCCnpGx");
+    izdelaj(nizi, 111, "HaQIw223W2bV_v3L50ImZ9_tumVQfBQHKHyK2289EqAB6jSy4vgXof6uvz6SbZkOlyo10vSsJbUU56dAh3fJxFXJ");
+    nizi[112] = nizi[26];
+    nizi[113] = nizi[24];
+    nizi[114] = nizi[74];
+    izdelaj(nizi, 115, "w58oqwezV2ubWiaGsZuo_kWJtvtgvJZ");
+    nizi[116] = nizi[52];
+    nizi[117] = nizi[27];
+    izdelaj(nizi, 118, "txhZBEVaszcmF_TCzRPCVZb4PrPcihIX_UkUvmj4Sq3RwosU8PIUJ_DrvnQIKk88");
+    nizi[119] = nizi[34];
+    nizi[120] = nizi[59];
+    nizi[121] = nizi[86];
+    nizi[122] = nizi[53];
+    nizi[123] = nizi[89];
+    izdelaj(nizi, 124, "hvPOdH40xnwBxefVoMHSXfHosnxzt5CzKdqWu2jYrCFKlGHXC9zeq5yzXwbYboYxjo0e7Iy1NEsLjnVjqp3vAi7tEAVqY9hZfq0");
+    izdelaj(nizi, 125, "4gV_7QKrrC72QBA43gWkq8Ltdj1dxxb");
+    izdelaj(nizi, 126, "z00BTrIw2lMWexzmRQ97bVh");
+    izdelaj(nizi, 127, "MzRT3lArTb3fhrvxe_CdLZ5IlbFfySsgKJoq9lTApcvLm40kZU2jlqErQsImqzxMdWXJ5u_nhKDitKoHhI_6kJeey");
+    nizi[128] = nizi[105];
+    izdelaj(nizi, 129, "gDO1sKC5kj6DB2KFFUawgt9GsijIrPiBT8xYtRXXHO2GVn7G16Kb_hxDqdC_MU6F");
+    nizi[130] = nizi[45];
+    izdelaj(nizi, 131, "kQ3IS4BKHv6W8eyeKbNrCDxTdkCXedMXUNmVAxaBFGMccNsgLSL9KDZTp5s8qCMYX3dG2y6h8uy3Suxw3U2yL7tLUviCWACki27");
+    izdelaj(nizi, 132, "Vsgdyh4HmRHF1nOhAj2Tz9Taj7EDQq2V5tUgisAEsPvtLyOxkCyeZfDdLzZUCZIM35an9PU6nc");
+    izdelaj(nizi, 133, "cKIAJm5O0Y2vLvjf361XdUK49Ne8ZUf7KBn9iABLjkpeM_YswOch2tSm7_p62HbaxK0");
+    izdelaj(nizi, 134, "jS1U6u8DGXR0lQ2OJPkRFdi");
+    nizi[135] = nizi[65];
+    izdelaj(nizi, 136, "FFbYyg8_0b");
+    izdelaj(nizi, 137, "viaN6wTsiZ4vkUH3RbE6FOf");
+    izdelaj(nizi, 138, "FMFUkBH2TnRhoFv5DM5Zov");
+    izdelaj(nizi, 139, "YAs3Ab_uZ6LNTjBy6vAYoXi0J8qvyWo9G1PgNb");
+    izdelaj(nizi, 140, "TssiYYt57tbpEs9xJRZXSVosb07zVv8qy94wvQWd1xJJ7oGmCilPha7N8scJyqzeJgg");
+    izdelaj(nizi, 141, "VkcKgISjHzWOBK7dOSdi4vkbP6zAKDoIhnR5q610OM");
+    izdelaj(nizi, 142, "krPBQzL9wjCaP1y6NRmzF9_vvgT046napEtSISRJQXM7tBqZ8k6aWWpJipERpCzvjvlODpIwfj_s9q");
+    izdelaj(nizi, 143, "UO6kL8ZpYLRrSoZ8d7rtjEm1BVVCLjglnLy8Nyel4t0q3NUvBLGaubByrsRighuZjqTBYs");
+    nizi[144] = nizi[19];
+    nizi[145] = nizi[25];
+    izdelaj(nizi, 146, "E8_ONGV00AA_SVsg8jJC5uYE9ZjINNR9b6KIvmqeCr0_Ujzr6vNP_0T0j_K");
+    izdelaj(nizi, 147, "HOllwXIPHqr5wsh0TeRWtuI5DXdNbxI4x0cdYK64ughib9VF03vwubFVYizUambPL5F74FNYrjmoPn78XN3Vd1TACYL6");
+    izdelaj(nizi, 148, "kVyZjzSKuaouNNef9YIDzbyKgL87wTW5l1f7AcDyhEoVjbwBWXOqcMWkzRXIF8A9MIxcrhkibhvBT3nk");
+    nizi[149] = nizi[60];
+    izdelaj(nizi, 150, "ROJWs8N5SQ");
+    nizi[151] = nizi[26];
+    izdelaj(nizi, 152, "Gi9B");
+    izdelaj(nizi, 153, "55VhISMeHVOMqoBKuR9QoFORNJl9_53EnTqBbgcYe2KFIWaKnp95ppMIjdgfJ4WoXajpXhk");
+    izdelaj(nizi, 154, "7JCaKPm4iYxqtAU6f8XY3jCT4V4N9RQGKhZfBYobkBIlVOA5hLkmjEH2rBjmwME6vNy4LA4XC58rrH0ast1Ft");
+    izdelaj(nizi, 155, "CWC6VDODXDxA7UFhaOyOTJm4htwfbC98jBgFg2MyjMkh4_7ypDELIFpFjwipsojCLcXrjBSw8oQHG4x");
+    izdelaj(nizi, 156, "BEIMFEJHyCrNpF9r7xpLY_E9NMtNE3fsINqXGQrK0fQlCbCUpYaRquslI2RR9LHWIx0g1Ige5Gm0uQl5EIlkmaFgXFczu7F");
+    nizi[157] = nizi[18];
+    nizi[158] = nizi[79];
+    izdelaj(nizi, 159, "NTpDX5p1dDhbEUCta");
+    izdelaj(nizi, 160, "AES3fvwUZEmvBt1KT4MUnu2PT89O7ajD2_f");
+    izdelaj(nizi, 161, "j0OvS");
+    izdelaj(nizi, 162, "AadKH2yg9qMhSFfopSPjJSITn6XFaeVmSo3OfPD9Kt6j8nanR");
+    izdelaj(nizi, 163, "HVA4ZH8_8dJyF1TbOPCIFcr");
+    nizi[164] = nizi[148];
+    izdelaj(nizi, 165, "lLaXGXbJONUNLefekeX4qJLz_MOuffyBmHqM93DeZYFAIcoLy1ljCNyMQEYXYH");
+    izdelaj(nizi, 166, "Jh4f6Qg1EwrDctdu6ROv4VUmzGLTZ_DKl8bsESpJS261hzowwPK5hRRXJc5GJpiGHZfwhygbqRJZCf0J8NhnZNHl5G");
+    izdelaj(nizi, 167, "Yn450X6EOEJS7Z");
+    izdelaj(nizi, 168, "v2gdB7kgNWoPDZLnOjLaeoZaihmGJEZP9XyQUSXjIo6VA5X9lz32CNFGUy");
+    izdelaj(nizi, 169, "_Z6AcvvAMBwVRPtbUWF2EcrQ7Q5AOu_QOzl2PaGIyqHI_zhSTVW3FOWGgipZiTzlVXI00YfB02iK");
+    izdelaj(nizi, 170, "hkl_SXmxXP7");
+    izdelaj(nizi, 171, "RzFiu03E8GMrVvbFnq18b5xgHMUANy7cVKJMRyZEX");
+    nizi[172] = nizi[110];
+    izdelaj(nizi, 173, "DKUsXJ5BRtDSskW_rtECFBmifi2LWWnHMbGQLWF1CFAgIC40r7oHiMDt9kSBZKgJyG7HYeSQBKu4hc2JFlJ0x7oL2RbO8pSiGHQ");
+    izdelaj(nizi, 174, "_SR2HgQcGPYds");
+    izdelaj(nizi, 175, "NeM9hP2gvyPr1sFGQ06wiPu8Gy_zNk0HevN_6CiMwK33jydgy4wW3vG");
+    izdelaj(nizi, 176, "Qu2BczaqxK3L1gE8UFB");
+    izdelaj(nizi, 177, "DZAldcVV8HHRRCAi4xk6mjaLV8ciFs9kmayjRslb9JFi9qQF9D5SYqOcscKhdkvuI5kiS3p4TimR5zWSk05L1ei2YE7_DBPf3tn");
+    izdelaj(nizi, 178, "qeR5639ON3Fe");
+    izdelaj(nizi, 179, "nNXFDvdY1MzZiTbo3ucqfzAWAYumOtFCymOefOjwxP5jrW0OtiLabn46I2j6hcvXggMgpNhOgwVJ5V8Ms2u1sXL5MJGn");
+    izdelaj(nizi, 180, "ZO4ezdVciVdUxaqMyTRdn8apw");
+    nizi[181] = nizi[17];
+    izdelaj(nizi, 182, "x05arVDcozb6ZyRbPPXa3aLTqgg2XfCGFh3XFRY621_g63NHlBu0Kw");
+    nizi[183] = nizi[90];
+    izdelaj(nizi, 184, "Mxd8iM2aF9wFtHHBptky2LICsaxt8zXspjiJBu3iZgirOftxGf4igFcTstSEm5");
+    izdelaj(nizi, 185, "MMTMqkm3Eg_s8Qah2eOobcyLZTcG");
+    izdelaj(nizi, 186, "S");
+    izdelaj(nizi, 187, "Ng0JoBMS");
+    izdelaj(nizi, 188, "Qxhlx6e4v1AzX_jrCA2kAeT2x5geX35OdEP8i8ZWezU5E7znnoUgaGHKI");
+    nizi[189] = nizi[136];
+    izdelaj(nizi, 190, "K7K721VKQaowjcdqyLBLvMYq4O4KF_BXqMNNC7jevF9IQb9HZk5y_bSUuLoRP2v3bS_YHbcZhrmYFoTp");
+    izdelaj(nizi, 191, "AMHZyYApYf7riWMraxwyAtm8zpzRoQhLn8Py0scdUHxUszCAwBtqO9o6SwqbN2W74muF0F");
+    izdelaj(nizi, 192, "TrHdnMWreLpoAR2LELEwAoRrBM7100GqOX3Bk2eSYOyquAuJiLyalkgUjAhDXHUkdW8");
+    izdelaj(nizi, 193, "a_S");
+    nizi[194] = nizi[60];
+    izdelaj(nizi, 195, "dOrzL71wIdAyAnmxSoLIu_qfLghmfTzNeVNtgAAVQWSRytuH");
+    nizi[196] = nizi[103];
+    izdelaj(nizi, 197, "5FXv15f6eUOpNBsUbaFBHOEIbqk3PkqzJyB4suERnQr");
+    izdelaj(nizi, 198, "blxDA2I4kZZYnfRdaLdntNbv6CPLrKmJWEcVLZcePOCFG4Jvmhv7tjCNjpNzG7LrSS");
+    izdelaj(nizi, 199, "g8XleY4");
+    nizi[200] = nizi[167];
+    izdelaj(nizi, 201, "6PvLY0R16OG01Gm5aDgC8V6bkVVsVH9HWwVFHnSrzBIJNGE53RcwidRb3z2H6cP6");
+    nizi[202] = nizi[2];
+    izdelaj(nizi, 203, "b7Kjcg3mcN6ZT7UK924uexEAk8HQ5xgqq8_NVvChyvx6OuN9fcEVJ9n");
+    izdelaj(nizi, 204, "GoCz7rEEH19twSTHirtO0DYU9tFgYyfSs8DcWhDh30uIvI4k8qZF0GDQhaWQoiIy4dNAoE10CFllPSXCbgsL3j");
+    izdelaj(nizi, 205, "PasgLH3kOcjpagf4FaFhdwFK4uflEvXCFE");
+    izdelaj(nizi, 206, "PRxIFNturcbgMix8XMsljSW3RleUEms7BfmA");
+    izdelaj(nizi, 207, "RAxlGaL7ffQ");
+    izdelaj(nizi, 208, "qJuP8wHZ5t8l1h7X9oFddZmI4bAI_vX5g7nGavibf2IP8A8qiz6gUBIWOKAxobHZXovML2LrOpw70Ugtc");
+    izdelaj(nizi, 209, "BfErDMnnx290i3ev3vpTMCng5frgs");
+    nizi[210] = nizi[1];
+    nizi[211] = nizi[59];
+    izdelaj(nizi, 212, "AM3IUP5d4pqcsBr5jDLpmWSkPD7MStmXxo3hPJIEzPXDPy");
+    izdelaj(nizi, 213, "wQghxRcxDAtt22Db6qfTY94FmQZaXVEPQnGW1xJ68ZLGWF98OLasnrbIQ5Ip7cwrs1gxsC");
+    izdelaj(nizi, 214, "crU3PW2cHEm5qgc");
+    nizi[215] = nizi[8];
+    nizi[216] = nizi[33];
+    nizi[217] = nizi[171];
+    izdelaj(nizi, 218, "siugVOGDBg7DezGlFOJeRAVD0i3VRFDhIhfu1FeWemaoDk4BMMHtXIJi0U2XupiwNLqbtyFEBepPeYYgCc9GdH2");
+    izdelaj(nizi, 219, "gUL1MI5n3Fl4E8Ae1WTGXZfcd2uEYN6ztEm3XVmIXzBhpfcLWMLpSS9n");
+    nizi[220] = nizi[91];
+    izdelaj(nizi, 221, "JKI4mIpfZ");
+    izdelaj(nizi, 222, "k_zAmS9GdOgS7p");
+    izdelaj(nizi, 223, "UjUzsVNxOdhHjUKKBHfcBO868iaJJOMMs4BSJHzz5quJNnWTUikG8LRvQ9plwBLGx3LjIon");
+    nizi[224] = nizi[124];
+    izdelaj(nizi, 225, "E33SotdVqErKAQRehAvHamFcfghHOJSBbjt3tHjNB2O54TrmA9n_vICLVzbhnbe1lLaAiKNP7np3hs11ZltR9xzhq2u800qij");
+    nizi[226] = nizi[167];
+
+    char** niziKopija = malloc((n + 1) * sizeof(char*));
+    memcpy(niziKopija, nizi, (n + 1) * sizeof(char*));
+
+    razbohoti(nizi);
+
+    for (int i = 0; i < n; i++) {
+        printf("%d", nizi[i] == niziKopija[i]);
+    }
+    printf("\n");
+
+    for (int i = 0; i < n; i++) {
+        printf("<%s>\n", nizi[i]);
+        free(nizi[i]);
+    }
+
+    free(nizi);
+    free(niziKopija);
+
+    printf("-----\n");
+
+    return 0;
+}

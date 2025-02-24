@@ -19,6 +19,9 @@ predavanja
 # ignore subdirectory and its content
 **/build
 
+# ignore rezultatXX.csv files
+**/rezultat??.csv
+
 # ignore file extension
 *.exe
 *.diff

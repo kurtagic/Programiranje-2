@@ -1,22 +1,21 @@
 #include <stdio.h>
 
-int pythagorianTriples(int a, int b);
+int pythagorian_triplets(int a, int b);
 
 int main()
 {
-    int m;
-    int n;
+    int m, n;
 
     scanf("%d %d", &m, &n);
 
-    int counter = pythagorianTriples(m, n);
+    int counter = pythagorian_triplets(m, n);
 
     printf("%d\n", counter);
 
     return 0;
 }
 
-int pythagorianTriples(int m, int n)
+int pythagorian_triplets(int m, int n)
 {
     int count = 0;
 

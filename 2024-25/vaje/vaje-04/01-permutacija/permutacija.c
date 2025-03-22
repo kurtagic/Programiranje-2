@@ -1,40 +1,46 @@
-#include <stdbool.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
 
-bool jeClenPermutacije(int *array, int len, int n);
+bool is_unique_element_of_set(bool *elements, int n, int a);
 
 int main()
 {
     int n;
     scanf("%d", &n);
-    int tabela[n];
 
-    for (int i = 0; i < n; i++)
+    bool* elements = (bool*)malloc(n * sizeof(bool));
+    for (size_t i = 0; i < n; i++)
     {
-        tabela[i] = -1;
+        elements[i] = false;
     }
+
+    bool is_permutation = true;
 
     for (int i = 0; i < n; i++)
     {
         int a;
         scanf("%d", &a);
 
-        if (!jeClenPermutacije(tabela, n, a))
+        if (!is_unique_element_of_set(elements, n, a))
         {
-            printf("NE\n");
+            is_permutation = false;
 
-            return 0;
+            break;
         }
 
-        tabela[a] = a;
+        elements[a] = true;
     }
 
-    printf("DA\n");
+    printf(is_permutation ? "DA" : "NE");
+    printf("\n");
+
+    free(elements);
 
     return 0;
 }
 
-bool jeClenPermutacije(int *array, int len, int n)
+bool is_unique_element_of_set(bool *elements, int n, int a)
 {
-    return n >= 0 && n < len && array[n] == -1;
+    return a >= 0 && a < n && elements[a] == false;
 }

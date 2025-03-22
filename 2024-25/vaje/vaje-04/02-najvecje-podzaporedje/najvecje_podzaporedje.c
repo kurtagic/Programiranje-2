@@ -1,32 +1,36 @@
-#include <limits.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
 
-int maxVsota(int *array, int len);
+int max_sum(int *array, int n);
 
 int main()
 {
     int n;
     scanf("%d", &n);
 
-    int tabela[n];
+    int* zaporedje = (int*)malloc(n * sizeof(int));
     for (int i = 0; i < n; i++)
     {
-        scanf("%d", &tabela[i]);
+        scanf("%d", &zaporedje[i]);
     }
 
-    printf("%d\n", maxVsota(tabela, n));
+    printf("%d\n", max_sum(zaporedje, n));
+
+    free(zaporedje);
 
     return 0;
 }
 
-int maxVsota(int *array, int len)
+int max_sum(int *array, int  n)
 {
     int max = INT_MIN;
     int sum = 0;
 
-    for (int i = 0; i < len; i++)
+    for (int i = 0; i < n; i++)
     {
         sum += array[i];
+
         if (sum > max)
         {
             max = sum;

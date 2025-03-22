@@ -1,43 +1,45 @@
 #include <stdio.h>
 
-const int NIMA = -1;
+#define NO_FRIEND -1
 
-int getFriendlyNumber(int n);
-int getDivisorsSum(int n);
+int get_friendly_number(int n);
+int get_divisiors_sum(int n);
 
 int main()
 {
     int n;
     scanf("%d", &n);
 
-    int burazeru = getFriendlyNumber(n);
+    int friendly_number = get_friendly_number(n);
 
-    if (burazeru == NIMA)
+    if (friendly_number == NO_FRIEND)
     {
-        printf("NIMA\n");
+        printf("NIMA");
     }
     else
     {
-        printf("%d\n", burazeru);
+        printf("%d", friendly_number);
     }
+
+    printf("\n");
 
     return 0;
 }
 
-int getFriendlyNumber(int n)
+int get_friendly_number(int n)
 {
-    int friend = getDivisorsSum(n);
-    int friendDivisors = getDivisorsSum(friend);
+    int friend = get_divisiors_sum(n);
+    int friend_divisors = get_divisiors_sum(friend);
 
     if (friend == n)
     {
-        return NIMA;
+        return NO_FRIEND;
     }
 
-    return (friendDivisors == n) ? friend : NIMA;
+    return (friend_divisors == n) ? friend : NO_FRIEND;
 }
 
-int getDivisorsSum(int n)
+int get_divisiors_sum(int n)
 {
     int sum = 0;
 

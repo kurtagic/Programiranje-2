@@ -26,8 +26,6 @@ void indeksInKazalec(int *t, int *indeks, int **kazalec)
     {
         *kazalec = t + *indeks;
     }
-
-    return;
 }
 
 void frekvenceCrk(char *niz, int **frekvence)
@@ -45,8 +43,6 @@ void frekvenceCrk(char *niz, int **frekvence)
     }
 
     *frekvence = &array[0];
-
-    return;
 }
 
 #ifndef test

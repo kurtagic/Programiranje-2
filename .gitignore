@@ -22,6 +22,9 @@ predavanja
 # ignore rezultatXX.csv files
 **/rezultat??.csv
 
+#ingore reuzultatXX.txt files
+**/rezultat??.txt
+
 # ignore file extension
 *.exe
 *.diff
